@@ -11,7 +11,7 @@ const Banner = () => {
             <div className="space-y-4 flex-1">
                 <h1 className="font-bold text-3xl md:text-4xl text-base-content">Quick and Easy Loans for Your Financial Needs.</h1>
                 <p>Our loan services offer a hassle-free and streamlined borrowing experience, providing you with the funds you need in a timely manner to meet your financial requirements.</p>
-                <button className="btn btn-secondary btn-outline flex justify-center items-center">Get started <ArrowRight size={18}/></button>
+                <button className="btn btn-primary btn-outline flex justify-center items-center rounded-full">Get started <ArrowRight size={18}/></button>
             </div>
         </div>
     )
