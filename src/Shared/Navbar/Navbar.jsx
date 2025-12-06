@@ -1,0 +1,45 @@
+import { Menu, MoonIcon, SunIcon } from 'lucide-react'
+import React from 'react'
+import Logo from '../../Components/Logo/Logo'
+import { useTheme } from '../../Hooks/ThemeHook/useTheme'
+
+const Navbar = () => {
+
+    const [theme,toggleTheme] = useTheme()
+
+    return (
+        <div className="navbar bg-base-200 border border-base-100 shadow-sm">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-square btn-sm hover:bg-transparent hover:border-none hover:shadow-none lg:hidden">
+                        <Menu />
+                    </div>
+                    {/* mobile view */}
+                    <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+
+                    </ul>
+                </div>
+                <Logo />
+            </div>
+            {/* large screen view */}
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal px-1">
+
+                </ul>
+            </div>
+            <div className="navbar-end flex gap-2">
+                <button onClick={toggleTheme} className="size-9 p-2 flex items-center justify-center bg-base-100 shadow rounded-lg transition hover:scale-105 active:scale-95 cursor-pointer">
+                    {
+                        theme === "light"
+                            ? (<MoonIcon className=" text-black dark:text-gray-200" size={23} stroke='black' />)
+                            : (<SunIcon className="size-5 text-yellow-400" size={23} />)
+                    }
+                </button>
+                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Register</button>
+            </div>
+        </div>
+    )
+}
+
+export default Navbar
