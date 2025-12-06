@@ -7,7 +7,7 @@ import FadeIn from '../../../Components/Animations/FadeIn/FadeIn'
 const Banner = () => {
     return (
         <FadeIn>
-            <div className="flex flex-col md:flex-row-reverse gap-5 md:gap-10 justify-between items-center ">
+            <div className="flex flex-col md:flex-row-reverse gap-10 justify-between items-center ">
                 <div className="flex-1">
                     <FadeIn delay={0.5}>
                         <img src={assets.bank} alt="" />

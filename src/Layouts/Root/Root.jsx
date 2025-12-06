@@ -22,7 +22,7 @@ const Root = () => {
                 theme={theme}
                 style={{
                     width: '350px',
-                    margin: '10px 20px'
+                    margin: '10px 20px',
                 }}
             />
             <div className="bg-base-100 min-h-screen p-3 md:p-10">

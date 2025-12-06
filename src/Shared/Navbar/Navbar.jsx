@@ -33,7 +33,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <Logo style={'pl-2 md:pl-2'} />
+                <Logo style={'pl-2 md:pl-4'} />
             </div>
             {/* large screen view */}
             <div className="navbar-center hidden lg:flex">
