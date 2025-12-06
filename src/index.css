@@ -108,5 +108,5 @@
 }
 
 .active{
-    @apply bg-primary rounded-sm
+    @apply bg-primary rounded-sm text-white
 }
