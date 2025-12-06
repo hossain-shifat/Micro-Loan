@@ -8,6 +8,7 @@ const NewsLetter = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         toast.success('Subscribed successfully! 🎉 Check your inbox for updates.')
+        e.target.reset()
     }
 
     return (

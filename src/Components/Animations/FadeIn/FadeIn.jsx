@@ -11,7 +11,7 @@ const FadeIn = ({ children, direction = "up", delay = 0, duration = 0.8, classNa
     };
 
     return (
-        <motion.div className={className} initial={{ opacity: 0, ...position[direction] }} whileInView={{ opacity: 1, y: 0, x: 0 }} viewport={{ once: true }} transition={{ duration, delay }}>
+        <motion.div className={className} initial={{ opacity: 0, ...position[direction] }} whileInView={{ opacity: 1, y: 0, x: 0 }} viewport={{ once: false }} transition={{ duration, delay }}>
             {children}
         </motion.div>
     );
