@@ -106,3 +106,9 @@
   --depth: 0;
   --noise: 0;
 }
+
+
+
+.btn{
+    @apply font-bold
+}
