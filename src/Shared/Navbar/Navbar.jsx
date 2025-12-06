@@ -49,7 +49,7 @@ const Navbar = () => {
                             : (<SunIcon className="size-5 text-yellow-400" size={23} />)
                     }
                 </button>
-                <button className="btn btn-primary">Login</button>
+                <Link to='/login' className="btn btn-primary">Login</Link>
                 <Link to='/register' className="btn btn-primary">Register</Link>
             </div>
         </div>

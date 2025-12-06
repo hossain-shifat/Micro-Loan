@@ -1,7 +1,7 @@
-import { ArrowUp, Eye, EyeClosed, User } from 'lucide-react'
+import { ArrowUp, ClockFading, Eye, EyeClosed, User } from 'lucide-react'
 import React, { useState } from 'react'
 import { assets } from '../../../assets/assets'
-import { Link } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
 import SocialLogin from '../SocialLogin/SocialLogin'
 import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
@@ -12,8 +12,9 @@ const Register = () => {
 
     const [showPassword, setShowPassword] = useState(false)
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const { registerUser } = useAuth()
-
+    const { registerUser, updateUserProfile } = useAuth()
+    const navigate = useNavigate()
+    const location = useLocation()
 
     const axiosSecure = useAxiosSecure()
 
@@ -44,6 +45,19 @@ const Register = () => {
                                 }
                             })
 
+                        // update use in firebase
+                        const userProfile = {
+                            displayName: data.name,
+                            photoURL: photoURL
+                        }
+                        updateUserProfile(userProfile)
+                            .then(res => {
+                                console.log(res)
+                                navigate(location.state?.from?.pathname || "/");
+                            })
+                            .catch(error => {
+                                console.log(error)
+                            })
                     })
             })
             .catch(error => {
@@ -71,9 +85,9 @@ const Register = () => {
                         <label className="text-lg">Image</label>
                         <label className="flex w-full border rounded-xl">
                             <span className="w-full flex justify-center items-center bg-primary rounded-l-xl font-bold text-white text-center">Choose File</span>
-                            <input type="file" {...register('file', { required: true })} className="w-full p-3 bg-base-100 rounded-xl focus-within:outline-none placeholder:text-[#94A3B8] text-base-content text-md" />
+                            <input type="file" {...register('photo', { required: true })} className="w-full p-3 bg-base-100 rounded-xl focus-within:outline-none placeholder:text-[#94A3B8] text-base-content text-md" />
                         </label>
-                        {errors.file?.type === 'required' && <p className="text-red-500">File is Required!</p>}
+                        {errors.photo?.type === 'required' && <p className="text-red-500">Image is Required!</p>}
                     </div>
                     {/* email feild */}
                     <div>
