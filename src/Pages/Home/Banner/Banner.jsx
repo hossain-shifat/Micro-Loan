@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 
 const Banner = () => {
     return (
-        <div className="flex flex-col md:flex-row-reverse gap-5 md:gap-10 justify-between items-center border border-base-100 p-4 md:p-10 rounded-xl shadow-sm">
+        <div className="flex flex-col md:flex-row-reverse gap-5 md:gap-10 justify-between items-center border border-base-200 bg-base-200 p-4 md:p-10 rounded-xl shadow-sm">
             <div className="flex-1">
                 <img src={assets.bank} alt="" />
             </div>

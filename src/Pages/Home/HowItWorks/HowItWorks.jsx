@@ -3,7 +3,7 @@ import { process } from '../../../assets/assets'
 
 const HowItWorks = () => {
     return (
-        <div className="border border-base-100 shadow-sm p-2 md:p-10 py-5 rounded-xl space-y-5 md:space-y-15">
+        <div className="border border-base-200 bg-base-200 shadow-sm p-2 md:p-10 py-5 rounded-xl space-y-5 md:space-y-15">
             <div>
                 <h1 className="font-bold text-2xl md:text-4xl text-center">How it Works</h1>
             </div>
