@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner'
 import HowItWorks from '../HowItWorks/HowItWorks'
 import FadeIn from '../../../Components/Animations/FadeIn/FadeIn'
 import Reviews from '../Reviews/Reviews'
+import FAQ from '../FAQ/FAQ'
 
 const Home = () => {
     return (
@@ -15,6 +16,9 @@ const Home = () => {
             </FadeIn>
             <FadeIn>
                 <Reviews />
+            </FadeIn>
+            <FadeIn>
+                <FAQ />
             </FadeIn>
         </div>
     )

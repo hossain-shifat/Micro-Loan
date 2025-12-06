@@ -1,0 +1,34 @@
+[
+    {
+        "question": "What is LoanBee?",
+        "answer": "LoanBee is a microloan request and approval platform that allows users to apply for small loans quickly and manage their loan applications online."
+    },
+    {
+        "question": "Who can apply for a loan?",
+        "answer": "Anyone registered as a borrower on LoanBee with a verified email and profile can apply for a loan."
+    },
+    {
+        "question": "How long does it take to approve a loan?",
+        "answer": "Loan approval time depends on the manager's review. Typically, applications are reviewed within 24–48 hours."
+    },
+    {
+        "question": "Can I track my loan application status?",
+        "answer": "Yes, borrowers can track their applications in the 'My Loans' section of their dashboard, where the status is updated in real-time."
+    },
+    {
+        "question": "What documents do I need to provide?",
+        "answer": "You need to provide a valid ID, proof of income, and any additional documents requested by the loan manager during the application process."
+    },
+    {
+        "question": "Is there a fee to apply for a loan?",
+        "answer": "Yes, a small application fee of $10 is charged via Stripe during the loan application process."
+    },
+    {
+        "question": "Can I cancel my loan application?",
+        "answer": "Yes, borrowers can cancel a pending loan application from their dashboard before it is approved by the manager."
+    },
+    {
+        "question": "How secure is my personal information?",
+        "answer": "LoanBee uses secure authentication, environment variables for sensitive data, and encrypted storage to protect your personal information."
+    }
+]
