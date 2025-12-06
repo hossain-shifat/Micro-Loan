@@ -19,7 +19,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <Logo />
+                <Logo style={'pl-2 md:pl-2'}/>
             </div>
             {/* large screen view */}
             <div className="navbar-center hidden lg:flex">

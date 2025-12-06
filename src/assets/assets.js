@@ -3,11 +3,13 @@ import application from './application.png'
 import document from './document.png'
 import card from './credit.png'
 import approved from './approve.png'
+import footerImg from './footer-bg.png'
 
 
 
 export const assets = {
-    bank
+    bank,
+    footerImg
 }
 
 export const process = [
