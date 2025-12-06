@@ -2,10 +2,24 @@ import { Menu, MoonIcon, SunIcon } from 'lucide-react'
 import React from 'react'
 import Logo from '../../Components/Logo/Logo'
 import { useTheme } from '../../Hooks/ThemeHook/useTheme'
+import { NavLink } from 'react-router'
 
 const Navbar = () => {
 
-    const [theme,toggleTheme] = useTheme()
+    const [theme, toggleTheme] = useTheme()
+
+    const links =
+        <>
+            <NavLink to='/'><li>Home</li></NavLink>
+            <NavLink to='/allLoans'><li>All-Loans</li></NavLink>
+            <NavLink to='/aboutUs'><li>About Us</li></NavLink>
+            <NavLink to='/contact'><li>Contact</li></NavLink>
+        </>
+
+
+
+
+
 
     return (
         <div className="navbar bg-base-200 border border-base-100 shadow-sm">
@@ -15,20 +29,20 @@ const Navbar = () => {
                         <Menu />
                     </div>
                     {/* mobile view */}
-                    <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-
+                    <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 *:p-2 *:font-bold *:text-base-content shadow">
+                        {links}
                     </ul>
                 </div>
-                <Logo style={'pl-2 md:pl-2'}/>
+                <Logo style={'pl-2 md:pl-2'} />
             </div>
             {/* large screen view */}
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-
+                <ul className="menu menu-horizontal *:px-4 *:py-2 *:font-semibold">
+                    {links}
                 </ul>
             </div>
             <div className="navbar-end flex gap-2">
-                <button onClick={toggleTheme} className="size-9 p-2 flex items-center justify-center bg-base-100 shadow rounded-lg transition hover:scale-105 active:scale-95 cursor-pointer">
+                <button onClick={toggleTheme} className="size-10 p-2 flex items-center justify-center bg-base-100 shadow rounded-lg transition hover:scale-105 active:scale-95 cursor-pointer">
                     {
                         theme === "light"
                             ? (<MoonIcon className=" text-black dark:text-gray-200" size={23} stroke='black' />)
