@@ -4,12 +4,14 @@ import document from './document.png'
 import card from './credit.png'
 import approved from './approve.png'
 import footerImg from './footer-bg.png'
+import newsLetter from './newsletter.png'
 
 
 
 export const assets = {
     bank,
-    footerImg
+    footerImg,
+    newsLetter
 }
 
 export const process = [

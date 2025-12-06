@@ -4,6 +4,7 @@ import HowItWorks from '../HowItWorks/HowItWorks'
 import FadeIn from '../../../Components/Animations/FadeIn/FadeIn'
 import Reviews from '../Reviews/Reviews'
 import FAQ from '../FAQ/FAQ'
+import NewsLetter from '../NewsLetter/NewsLetter'
 
 const Home = () => {
     return (
@@ -19,6 +20,9 @@ const Home = () => {
             </FadeIn>
             <FadeIn>
                 <FAQ />
+            </FadeIn>
+            <FadeIn>
+                <NewsLetter />
             </FadeIn>
         </div>
     )
