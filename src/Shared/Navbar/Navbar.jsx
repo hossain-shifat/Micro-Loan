@@ -2,7 +2,7 @@ import { Menu, MoonIcon, SunIcon } from 'lucide-react'
 import React from 'react'
 import Logo from '../../Components/Logo/Logo'
 import { useTheme } from '../../Hooks/ThemeHook/useTheme'
-import { NavLink } from 'react-router'
+import { Link, NavLink } from 'react-router'
 
 const Navbar = () => {
 
@@ -50,7 +50,7 @@ const Navbar = () => {
                     }
                 </button>
                 <button className="btn btn-primary">Login</button>
-                <button className="btn btn-primary">Register</button>
+                <Link to='/register' className="btn btn-primary">Register</Link>
             </div>
         </div>
     )

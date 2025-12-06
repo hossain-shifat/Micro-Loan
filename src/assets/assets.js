@@ -5,13 +5,15 @@ import card from './credit.png'
 import approved from './approve.png'
 import footerImg from './footer-bg.png'
 import newsLetter from './newsletter.png'
+import auth from './auth.png'
 
 
 
 export const assets = {
     bank,
     footerImg,
-    newsLetter
+    newsLetter,
+    auth
 }
 
 export const process = [
