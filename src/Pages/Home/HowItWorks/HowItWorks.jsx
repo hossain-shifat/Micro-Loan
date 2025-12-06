@@ -5,7 +5,7 @@ import FadeIn from '../../../Components/Animations/FadeIn/FadeIn'
 
 const HowItWorks = () => {
     return (
-        <div className="border border-base-200 bg-base-200 shadow-sm p-2 md:p-10 py-5 rounded-xl space-y-5 md:space-y-15">
+        <div className="py-5 space-y-5 md:space-y-15">
             <div>
                 <h1 className="font-bold text-2xl md:text-4xl text-center">How it Works</h1>
             </div>

@@ -1,0 +1,82 @@
+[
+    {
+        "id": "5f47ac10b4f1c03e8c123456",
+        "user_email": "john.doe@example.com",
+        "userName": "John Doe",
+        "manager_email": "manager1@loanlink.com",
+        "review": "Quick loan approval and helpful manager. The process was smooth.",
+        "loan_id": "LL-1001",
+        "user_photoURL": "https://randomuser.me/api/portraits/men/10.jpg",
+        "date": "2024-05-08T14:30:00.000Z"
+    },
+    {
+        "id": "5f47ac10b4f1c03e8c234567",
+        "user_email": "jane.smith@example.com",
+        "userName": "Jane Smith",
+        "manager_email": "manager2@loanlink.com",
+        "review": "Loan approval was slightly delayed, but overall the experience was okay.",
+        "loan_id": "LL-1002",
+        "user_photoURL": "https://randomuser.me/api/portraits/women/25.jpg",
+        "date": "2024-06-10T10:15:00.000Z"
+    },
+    {
+        "id": "5f47ac10b4f1c03e8c345678",
+        "user_email": "alex.brown@example.com",
+        "userName": "Alex Brown",
+        "manager_email": "manager3@loanlink.com",
+        "review": "Fantastic support! Loan approved fast and without confusion.",
+        "loan_id": "LL-1003",
+        "user_photoURL": "https://randomuser.me/api/portraits/men/34.jpg",
+        "date": "2024-07-01T08:50:00.000Z"
+    },
+    {
+        "id": "5f47ac10b4f1c03e8c456789",
+        "user_email": "lisa.white@example.com",
+        "userName": "Lisa White",
+        "manager_email": "manager4@loanlink.com",
+        "review": "Very professional loan manager. Explained all terms clearly.",
+        "loan_id": "LL-1004",
+        "user_photoURL": "https://randomuser.me/api/portraits/women/12.jpg",
+        "date": "2024-07-15T09:10:00.000Z"
+    },
+    {
+        "id": "5f47ac10b4f1c03e8c567890",
+        "user_email": "david.lee@example.com",
+        "userName": "David Lee",
+        "manager_email": "manager5@loanlink.com",
+        "review": "Loan processing took too long and communication was poor.",
+        "loan_id": "LL-1005",
+        "user_photoURL": "https://randomuser.me/api/portraits/men/19.jpg",
+        "date": "2024-08-02T16:45:00.000Z"
+    },
+    {
+        "id": "5f47ac10b4f1c03e8c678901",
+        "user_email": "nina.khan@example.com",
+        "userName": "Nina Khan",
+        "manager_email": "manager6@loanlink.com",
+        "review": "Great experience! Loan approved quickly and clearly explained.",
+        "loan_id": "LL-1006",
+        "user_photoURL": "https://randomuser.me/api/portraits/women/8.jpg",
+        "date": "2024-08-10T12:00:00.000Z"
+    },
+    {
+        "id": "5f47ac10b4f1c03e8c789012",
+        "user_email": "michael.jordan@example.com",
+        "userName": "Michael Jordan",
+        "manager_email": "manager7@loanlink.com",
+        "review": "Decent service but the interest rate explanation could be clearer.",
+        "loan_id": "LL-1007",
+        "user_photoURL": "https://randomuser.me/api/portraits/men/22.jpg",
+        "date": "2024-08-14T18:20:00.000Z"
+    },
+    {
+        "id": "5f47ac10b4f1c03e8c890123",
+        "user_email": "emma.watson@example.com",
+        "userName": "Emma Watson",
+        "manager_email": "manager8@loanlink.com",
+        "review": "Fast loan approval with very friendly communication. Recommended!",
+        "loan_id": "LL-1008",
+        "user_photoURL": "https://randomuser.me/api/portraits/women/5.jpg",
+        "date": "2024-08-20T07:30:00.000Z"
+    }
+]
