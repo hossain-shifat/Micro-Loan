@@ -21,7 +21,7 @@ const LoanDetails = () => {
         return <Loading />
     }
 
-    const similarLoans = loans.slice(0, 7)
+    const similarLoans = loans.slice(0, 6)
 
     const loan = loans.find((l) => l._id === id);
     console.log(loan)
@@ -33,6 +33,9 @@ const LoanDetails = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-fr gap-2">
                 <div className="hidden md:block md:col-span-1 md:row-span-2 p-5 border border-base-200 bg-base-200 rounded-2xl shadow-sm">
+                    <div className="py-5">
+                        <h1 className="font-bold text-xl md:text-2xl">Similar Loans</h1>
+                    </div>
                     <div className="space-y-2">
                         {
                             similarLoans.map((loan, index) => (
@@ -55,7 +58,7 @@ const LoanDetails = () => {
                     </div>
                 </div>
                 <div className="md:col-span-2 border border-base-200 p-5 bg-base-200 rounded-2xl shadow-sm">
-                    <div className="flex gap-5">
+                    <div className="flex gap-5 items-center">
                         <div className="">
                             <img className="w-55 h-60 object-cover rounded-xl" src={loan.photo} alt="" />
                         </div>
@@ -65,8 +68,8 @@ const LoanDetails = () => {
                                     <h1 className="font-bold  text-xl md:text-2xl">{loan.loanTitle}</h1>
                                     <div className="grid grid-cols-3 gap-3 items-center border-b-2 border-primary pb-5 border-dashed">
                                         <p>Category: {loan.loanCategory}</p>
-                                        <p className="border-l-2 px-2 border-r-2">Interest Rate: {loan.interestRate}%</p>
-                                        <p>Category: {loan.EMIPlans}</p>
+                                        <p className="border-l-2 p-2 border-r-2">Interest Rate: {loan.interestRate}%</p>
+                                        <p>Emi Plans: {loan.EMIPlans}</p>
                                     </div>
                                 </div>
                                 <div>

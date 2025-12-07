@@ -30,18 +30,15 @@ const AllLoan = () => {
                 {
                     loans.map((loan, index) => (
                         <FadeIn key={index} delay={0.1 * index}>
-                            <div key={index} className="border border-base-200 bg-base-200 shadow-sm p-4 flex gap-4 rounded-xl ">
-                                <div className="w-full">
-                                    <img className="max-w-[200px] w-full min-h-fit h-full object-cover rounded-xl" src={loan.photo} alt="" />
+                            <div key={index} className="flex p-5 gap-5 border border-base-200 bg-base-200 w-full rounded-xl">
+                                <div>
+                                    <img className="w-40 h-40 object-cover rounded-xl" src={loan.photo} alt="" />
                                 </div>
-                                <div className="flex flex-col justify-between gap-2 md:gap-0">
-                                    <h1 className="text-lg md:text-xl font-bold text-base-content">{loan.loanTitle}</h1>
-                                    <div className="flex justify-between">
-                                        <h1>{loan.loanCategory}</h1>
-                                        <h1>{loan.interest}</h1>
-                                    </div>
+                                <div className="flex flex-col justify-between">
                                     <div>
-                                        <h1 className="font-bold text-xl">${loan.maxLoanLimit}</h1>
+                                        <h1 className="font-bold text-xl">{loan.loanTitle}</h1>
+                                        <h1 className="">{loan.loanCategory}</h1>
+                                        <h1 className="font-bold text-2xl">${loan.maxLoanLimit}</h1>
                                     </div>
                                     <div className="w-full">
                                         <Link to={`/loan-details/${loan._id}`}><button className="btn btn-primary w-full">View Details</button></Link>
