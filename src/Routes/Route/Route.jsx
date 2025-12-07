@@ -4,6 +4,9 @@ import Home from "../../Pages/Home/Home/Home";
 import AuthLayout from "../../Layouts/AuthLayout/AuthLayout";
 import Register from "../../Pages/Auth/Register/Register";
 import Login from "../../Pages/Auth/Login/Login";
+import AllLoan from "../../Pages/Loan/AllLoans/AllLoan";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import LoanDetails from "../../Pages/Loan/LoanDetails/LoanDetails";
 
 
 export const router = createBrowserRouter([
@@ -14,13 +17,21 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home
-            }
+            },
+            {
+                path: '/all-loans',
+                Component: AllLoan
+            },
+            {
+                path: '/loan-details',
+                element: <PrivateRoute><LoanDetails /></PrivateRoute>
+            },
         ]
     },
     {
         path: '/',
         Component: AuthLayout,
-        children:[
+        children: [
             {
                 path: '/register',
                 Component: Register
