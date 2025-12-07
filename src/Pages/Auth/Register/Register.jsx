@@ -34,7 +34,6 @@ const Register = () => {
                     .then(res => {
                         const photoURL = res.data.data.url
 
-
                         //create user in database
                         const userInfo = {
                             email: data.email,

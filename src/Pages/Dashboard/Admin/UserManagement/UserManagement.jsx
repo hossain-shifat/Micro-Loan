@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
+import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
 import Swal from 'sweetalert2'
 import { ShieldPlus, ShieldX } from 'lucide-react'
@@ -60,7 +60,7 @@ const UserManagement = () => {
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl">Users</h1>
+                <h1 className="font-bold text-2xl md:text-4xl">All Users</h1>
             </div>
             <div>
                 <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
