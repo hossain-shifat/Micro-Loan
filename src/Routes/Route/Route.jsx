@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
                 Component: AllLoan
             },
             {
-                path: '/loan-details',
+                path: '/loan-details/:id',
                 element: <PrivateRoute><LoanDetails /></PrivateRoute>
             },
         ]

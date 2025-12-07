@@ -4,6 +4,7 @@ import useAuth from '../../../../Hooks/UseAuth/useAuth'
 import { assets } from '../../../../assets/assets'
 import Swal from 'sweetalert2'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
+import axios from 'axios'
 
 const AddLoan = () => {
 
@@ -14,18 +15,33 @@ const AddLoan = () => {
     const loanCategories = ["Personal Loan", "Home Loan", "Car Loan", "Business Loan", "Education Loan", "Medical Loan", "Travel Loan", "Emergency Loan"];
 
     const handleLoanSubmit = (data) => {
-        
-        axiosSecure.post('/loans', data)
+
+        const photoLoan = data.photo[0];
+
+        const formData = new FormData()
+        formData.append('image', photoLoan)
+
+        axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_HOST}`, formData)
             .then(res => {
-                if (res.data.insertedId) {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Loan Submitted",
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
+                const loanImg = res.data.data.url
+
+                const loanInfo = {
+                    ...data,
+                    photo: loanImg
                 }
+
+                axiosSecure.post('/loans', loanInfo)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: "Loan Submitted",
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
+                        }
+                    })
             })
     }
 

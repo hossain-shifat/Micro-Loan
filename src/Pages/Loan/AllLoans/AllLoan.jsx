@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import FadeIn from '../../../Components/Animations/FadeIn/FadeIn'
+import { useQuery } from '@tanstack/react-query'
+import Loading from '../../../Components/Loading/Loading'
+import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
+import { Link } from 'react-router'
 
 const AllLoan = () => {
 
-    const [loans, setLoans] = useState([])
+    const axiosSecure = useAxiosSecure()
 
-    useEffect(() => {
-        fetch('/loan.json')
-            .then(res => res.json())
-            .then(data => setLoans(data))
-    }, [])
+    const { isLoading, data: loans = [] } = useQuery({
+        queryKey: ['loans'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/loans`)
+            return res.data
+        }
+    })
 
-    console.log(loans)
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <div className="space-y-10">
@@ -24,7 +32,7 @@ const AllLoan = () => {
                         <FadeIn key={index} delay={0.1 * index}>
                             <div key={index} className="border border-base-200 bg-base-200 shadow-sm p-4 flex gap-4 rounded-xl ">
                                 <div className="w-full">
-                                    <img className="max-w-[200px] w-full min-h-fit h-full object-cover rounded-xl" src={loan.loanImage} alt="" />
+                                    <img className="max-w-[200px] w-full min-h-fit h-full object-cover rounded-xl" src={loan.photo} alt="" />
                                 </div>
                                 <div className="flex flex-col justify-between gap-2 md:gap-0">
                                     <h1 className="text-lg md:text-xl font-bold text-base-content">{loan.loanTitle}</h1>
@@ -36,7 +44,7 @@ const AllLoan = () => {
                                         <h1 className="font-bold text-xl">${loan.maxLoanLimit}</h1>
                                     </div>
                                     <div className="w-full">
-                                        <button className="btn btn-primary w-full">View Details</button>
+                                        <Link to={`/loan-details/${loan._id}`}><button className="btn btn-primary w-full">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>
