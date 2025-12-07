@@ -1,12 +1,14 @@
-import { Menu, MoonIcon, SunIcon } from 'lucide-react'
+import { Menu, MoonIcon, SunIcon, User } from 'lucide-react'
 import React from 'react'
 import Logo from '../../Components/Logo/Logo'
 import { useTheme } from '../../Hooks/ThemeHook/useTheme'
 import { Link, NavLink } from 'react-router'
+import useAuth from '../../Hooks/UseAuth/useAuth'
 
 const Navbar = () => {
 
     const [theme, toggleTheme] = useTheme()
+    const { user, logOut } = useAuth()
 
     const links =
         <>
@@ -17,7 +19,9 @@ const Navbar = () => {
         </>
 
 
-
+    const handleLogout = () => {
+        logOut()
+    }
 
 
 
@@ -41,7 +45,7 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end flex gap-2">
+            <div className="navbar-end flex gap-3">
                 <button onClick={toggleTheme} className="size-10 p-2 flex items-center justify-center bg-base-100 shadow rounded-lg transition hover:scale-105 active:scale-95 cursor-pointer">
                     {
                         theme === "light"
@@ -49,8 +53,20 @@ const Navbar = () => {
                             : (<SunIcon className="size-5 text-yellow-400" size={23} />)
                     }
                 </button>
-                <Link to='/login' className="btn btn-primary">Login</Link>
-                <Link to='/register' className="btn btn-primary">Register</Link>
+                {
+                    user ?
+                        <div className="flex gap-4 items-center">
+                            <div>
+                                <User />
+                            </div>
+                            <button onClick={handleLogout} className="btn btn-error btn-outline">Logout</button>
+                        </div>
+                        :
+                        <>
+                            <Link to='/login' className="btn btn-primary">Login</Link>
+                            <Link to='/register' className="btn btn-primary">Register</Link>
+                        </>
+                }
             </div>
         </div>
     )

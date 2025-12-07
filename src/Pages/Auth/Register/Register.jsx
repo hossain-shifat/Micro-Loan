@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import SocialLogin from '../SocialLogin/SocialLogin'
 import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import useAuth from '../../../Hooks/UseAuth/useAuth'
+import axios from 'axios'
 
 
 const Register = () => {
@@ -33,6 +34,8 @@ const Register = () => {
                     .then(res => {
                         const photoURL = res.data.data.url
 
+
+                        //create user in database
                         const userInfo = {
                             email: data.email,
                             displayName: data.name,
@@ -103,7 +106,7 @@ const Register = () => {
                             <span onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-3 cursor-pointer">{showPassword ? <EyeClosed /> : <Eye />}</span>
                             {errors.password?.type === 'required' && <p className="text-red-500">Password is Required!</p>}
                             {errors.password?.type === 'minLength' && <p className="text-red-500">Password must be 6 characters or longer</p>}
-                            {/* {errors.password?.type === 'pattern' && <p className="text-red-500">Password must have an uppercase, at least one lowercase, atleast one number and at least one special character</p>} */}
+                            {errors.password?.type === 'pattern' && <p className="text-red-500">Password must have an uppercase, at least one lowercase, atleast one number and at least one special character</p>}
                         </div>
                     </div>
                     <div className="w-full my-2">

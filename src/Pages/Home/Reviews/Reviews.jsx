@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import FadeIn from '../../../Components/Animations/FadeIn/FadeIn';
 
 const Reviews = () => {
 
@@ -55,7 +56,7 @@ const Reviews = () => {
                             <SwiperSlide>
                                 <div key={review.id} className="border border-base-200 shadow-lg space-y-3 rounded-xl p-4 max-w-[400px] mx-auto bg-base-100">
                                     <div className="text-[#14B8A566]">
-                                        <Quote size={40} fill='#14B8A599'/>
+                                        <Quote size={40} fill='#14B8A599' />
                                     </div>
                                     <div className="space-y-3">
                                         <p className="text-gray-600 text-start pb-5 border-b-2 border-dashed border-primary">{review.review}</p>
@@ -73,9 +74,9 @@ const Reviews = () => {
                     }
                 </Swiper>
                 <div className="flex justify-between max-w-[350px] mx-auto">
-                    <button className="swiper-button-prev bg-primary shadow-lg p-3 rounded-full text-black cursor-pointer z-10"><ArrowLeft stroke='white'/></button>
+                    <button className="swiper-button-prev bg-primary shadow-lg p-3 rounded-full text-black cursor-pointer z-10"><ArrowLeft stroke='white' /></button>
                     <div className="custom-pagination flex items-center justify-center"></div>
-                    <button className="swiper-button-next bg-primary shadow-lg p-3 rounded-full text-black cursor-pointer z-10"><ArrowRight stroke='white'/></button>
+                    <button className="swiper-button-next bg-primary shadow-lg p-3 rounded-full text-black cursor-pointer z-10"><ArrowRight stroke='white' /></button>
                 </div>
             </div>
         </div>

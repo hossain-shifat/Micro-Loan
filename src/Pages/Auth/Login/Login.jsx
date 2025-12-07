@@ -48,7 +48,7 @@ const Login = () => {
                         <Link to="/forget-password" className="text-[#71717A] underline cursor-pointer">Forget Password?</Link>
                     </div>
                     <div className="w-full my-4">
-                        <button className="btn btn-primary w-full text-black font-bold text-[1.1rem] rounded-xl">Login</button>
+                        <button className="btn btn-primary w-full text-white font-bold text-[1.1rem] rounded-xl">Login</button>
                     </div>
                     <p>Don't have any account? <Link state={location.state} to='/register' className="hover:underline text-primary cursor-pointer">Register</Link></p>
                 </form>

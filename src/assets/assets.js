@@ -6,6 +6,7 @@ import approved from './approve.png'
 import footerImg from './footer-bg.png'
 import newsLetter from './newsletter.png'
 import auth from './auth.png'
+import google from './google.png'
 
 
 
@@ -13,7 +14,8 @@ export const assets = {
     bank,
     footerImg,
     newsLetter,
-    auth
+    auth,
+    google
 }
 
 export const process = [

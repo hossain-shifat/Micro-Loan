@@ -7,8 +7,8 @@ const AuthLayout = () => {
     return (
         <div>
             <AuthNav />
-            <div className="flex justify-around gap-20 items-center m-4 md:m-10 border border-base-200 bg-base-200 rounded-2xl">
-                <div className="flex-1">
+            <div className="flex justify-between items-center m-4 md:m-10 border border-base-200 bg-base-200 rounded-2xl">
+                <div className="w-full flex-1">
                     <div className="max-w-full mx-auto">
                         <Outlet />
                     </div>
