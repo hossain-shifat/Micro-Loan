@@ -111,4 +111,6 @@
     @apply bg-primary rounded-sm text-white
 }
 
-
+.activeDashMenu{
+    @apply bg-primary font-bold p-2
+}
