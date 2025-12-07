@@ -3,9 +3,11 @@ import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
 import Loading from '../../../Components/Loading/Loading'
 import { Link, useParams } from 'react-router'
+import useRole from '../../../Hooks/Role/useRoll'
 
 const LoanDetails = () => {
 
+    const { role, roleLoading } = useRole()
     const { id } = useParams()
     const axiosSecure = useAxiosSecure()
 
@@ -17,7 +19,7 @@ const LoanDetails = () => {
         }
     })
 
-    if (isLoading) {
+    if (isLoading || roleLoading) {
         return <Loading />
     }
 
@@ -42,7 +44,7 @@ const LoanDetails = () => {
                                 <div key={index} className="flex justify-between items-center p-4 border border-base-300 bg-base-300 rounded-xl">
                                     <div className="flex gap-3">
                                         <div>
-                                            <img className="w-12 h-12 object-cover" src={loan.photo} alt="" />
+                                            <img className="w-12 h-12 object-cover rounded-lg" src={loan.photo} alt="" />
                                         </div>
                                         <div>
                                             <h1 className="font-bold text-md">{loan.loanTitle}</h1>
@@ -77,7 +79,7 @@ const LoanDetails = () => {
                                     <p>{loan.description}</p>
                                 </div>
                                 <div className="flex justify-end mt-4">
-                                    <button className="btn btn-primary">Apply Now</button>
+                                    <button disabled={role === 'user' || 'borrower' ? false : true} className="btn btn-primary">Apply Now</button>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +111,7 @@ const LoanDetails = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

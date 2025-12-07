@@ -11,6 +11,8 @@ import DashbordLayout from "../../Layouts/DashboardLayout/DashboardLayout";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import UserManagement from "../../Pages/Dashboard/Admin/UserManagement/UserManagement";
 import AddLoan from "../../Pages/Dashboard/Manager/AddLoan/AddLoan";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import AllLoans from "../../Pages/Dashboard/Admin/AllLoans/AllLoans";
 
 
 export const router = createBrowserRouter([
@@ -54,10 +56,17 @@ export const router = createBrowserRouter([
                 index: true,
                 Component: Dashboard
             },
+            // admin route
             {
                 path: 'user-management',
-                Component: UserManagement
+                element: <AdminRoute><UserManagement /></AdminRoute>
             },
+            {
+                path: 'all-loans',
+                element: <AdminRoute><AllLoans /></AdminRoute>
+            },
+
+            // manager route
             {
                 path: 'add-loans',
                 Component: AddLoan

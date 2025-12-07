@@ -1,15 +1,16 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import useAuth from '../../../../Hooks/UseAuth/useAuth'
 import { assets } from '../../../../assets/assets'
 import Swal from 'sweetalert2'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import axios from 'axios'
+import useAuth from '../../../../Hooks/UseAuth/useAuth'
 
 const AddLoan = () => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm()
 
+    const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
 
     const loanCategories = ["Personal Loan", "Home Loan", "Car Loan", "Business Loan", "Education Loan", "Medical Loan", "Travel Loan", "Emergency Loan"];
@@ -27,7 +28,9 @@ const AddLoan = () => {
 
                 const loanInfo = {
                     ...data,
-                    photo: loanImg
+                    photo: loanImg,
+                    name: user.displayName,
+                    email: user.email,
                 }
 
                 axiosSecure.post('/loans', loanInfo)
