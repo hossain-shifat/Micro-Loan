@@ -7,6 +7,7 @@ import Login from "../../Pages/Auth/Login/Login";
 import AllLoan from "../../Pages/Loan/AllLoans/AllLoan";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import LoanDetails from "../../Pages/Loan/LoanDetails/LoanDetails";
+import DashbordLayout from "../../Layouts/DashboardLayout/DashboardLayout";
 
 
 export const router = createBrowserRouter([
@@ -41,5 +42,9 @@ export const router = createBrowserRouter([
                 Component: Login
             },
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><DashbordLayout /></PrivateRoute>
     }
 ])
