@@ -85,7 +85,7 @@ const ApprovedApplications = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/applications/${id}`)
                     .then(res => {
-                        if (res.data.success) {
+                        if (res.data.deletedCount) {
                             refetch();
                             Swal.fire({
                                 icon: 'success',

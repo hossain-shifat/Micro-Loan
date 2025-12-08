@@ -4,6 +4,7 @@ import useAuth from '../../../../Hooks/UseAuth/useAuth'
 import { useQuery } from '@tanstack/react-query'
 import Loading from '../../../../Components/Loading/Loading'
 import { BadgeCent, SquarePen, X } from 'lucide-react'
+import Swal from 'sweetalert2'
 
 const MyLoans = () => {
 
@@ -18,7 +19,35 @@ const MyLoans = () => {
         }
     })
 
-    console.log(applications)
+
+    const handleCancle = (id) => {
+            Swal.fire({
+                title: 'Delete application',
+                text: 'Are you sure you want to delete this application?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axiosSecure.delete(`/applications/${id}`)
+                        .then(res => {
+                            if (res.data.deletedCount) {
+                                refetch();
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Deleted successfully!',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                            }
+                        })
+                }
+            });
+        };
+
+
 
     if (isLoading) {
         return <Loading />
@@ -72,7 +101,7 @@ const MyLoans = () => {
                                                 {
                                                     application.status === 'pending' &&
                                                     <div className="tooltip tooltip-top" data-tip='Cancel'>
-                                                        <button className="btn btn-error btn-outline btn-sm btn-square"><X size={18} /></button>
+                                                        <button onClick={()=>handleCancle(application._id)} className="btn btn-error btn-outline btn-sm btn-square"><X size={18} /></button>
                                                     </div>
                                                 }
                                                 <div className="tooltip tooltip-top" data-tip='Pay'>
