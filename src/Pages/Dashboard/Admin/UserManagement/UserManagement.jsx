@@ -19,35 +19,36 @@ const UserManagement = () => {
 
 
     const updateUserAction = (user, status) => {
-        const roleInfo = { role: status }
-        axiosSecure.patch(`/users/${user._id}/role`, roleInfo)
-            .then(res => {
-                if (res.data.modifiedCount) {
 
-                    Swal.fire({
-                        title: "Change User Role?",
-                        text: `Are you sure you want to make ${user.displayName} a ${status}?`,
-                        icon: "warning",
-                        showCancelButton: true,
-                        theme: 'auto',
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "Yes!"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            refetch()
+        Swal.fire({
+            title: "Change User Role?",
+            text: `Are you sure you want to make ${user.displayName} a ${status}?`,
+            icon: "warning",
+            showCancelButton: true,
+            theme: 'auto',
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const roleInfo = { role: status };
+                axiosSecure.patch(`/users/${user._id}/role`, roleInfo)
+                    .then(res => {
+                        if (res.data.modifiedCount) {
+                            refetch();
                             Swal.fire({
                                 position: "center",
                                 icon: "success",
-                                title: `${user.displayName} is marked as ${status}`,
+                                title: `${user.displayName} is now a ${status}`,
                                 showConfirmButton: false,
                                 timer: 2000
-                            });
+                            })
                         }
-                    });
-                }
-            })
+                    })
+            }
+        })
     }
+
 
     const handleMakeManager = (user) => {
         updateUserAction(user, 'manager')

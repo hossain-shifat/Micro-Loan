@@ -14,6 +14,9 @@ import AddLoan from "../../Pages/Dashboard/Manager/AddLoan/AddLoan";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AllLoans from "../../Pages/Dashboard/Admin/AllLoans/AllLoans";
 import ApplyLoan from "../../Pages/Loan/ApplyLoan/ApplyLoan";
+import MyLoans from "../../Pages/Dashboard/User/MyLoans/MyLoans";
+import ManagerRoute from "../ManagerRoute/ManagerRoute";
+import PendingApplications from "../../Pages/Dashboard/Manager/PendingApplications/PendingApplications";
 
 
 export const router = createBrowserRouter([
@@ -61,6 +64,10 @@ export const router = createBrowserRouter([
                 index: true,
                 Component: Dashboard
             },
+            {
+                path: 'my-loans',
+                Component: MyLoans
+            },
             // admin route
             {
                 path: 'user-management',
@@ -74,7 +81,11 @@ export const router = createBrowserRouter([
             // manager route
             {
                 path: 'add-loans',
-                Component: AddLoan
+                element: <ManagerRoute><AddLoan /></ManagerRoute>
+            },
+            {
+                path: 'pending-applications',
+                element: <ManagerRoute><PendingApplications /></ManagerRoute>
             },
         ]
     }

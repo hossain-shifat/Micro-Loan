@@ -24,8 +24,15 @@ const ApplyLoan = () => {
         }
     })
 
+    const loan = loans.find((l) => l._id === id);
+
     const handleApplyLoan = (data) => {
-        axiosSecure.post('/applications', data)
+        const applyInfo ={
+            ...data,
+            loanId: loan.loanId
+        }
+
+        axiosSecure.post('/applications', applyInfo)
             .then(res => {
                 if (res.data.insertedId) {
                     reset()
@@ -45,7 +52,6 @@ const ApplyLoan = () => {
         return <Loading />
     }
 
-    const loan = loans.find((l) => l._id === id);
 
     return (
         <div className="space-y-10">

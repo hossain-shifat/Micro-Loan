@@ -1,5 +1,5 @@
 
-import { DollarSign, HandCoins, Home, MoonIcon, PanelRightClose, SunIcon, Users } from 'lucide-react'
+import { Clock, DollarSign, HandCoins, Home, MoonIcon, PanelRightClose, SunIcon, Users } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router'
 import Logo from '../../Components/Logo/Logo';
@@ -64,6 +64,17 @@ const DashbordLayout = () => {
                                     <span className="is-drawer-close:hidden">Dashboard</span>
                                 </Link>
                             </li>
+                            {
+                                role !== "admin" && role !== "manager" &&
+                                <>
+                                    <li className="mt-2">
+                                        <Link to="/dashboard/my-loans" onClick={() => setMenu("my-loans")} className={`${menu === "my-loans" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
+                                            <h1 className="flex justify-center items-center"><DollarSign size={18} /></h1>
+                                            <span className="is-drawer-close:hidden">My Loans</span>
+                                        </Link>
+                                    </li>
+                                </>
+                            }
 
                             {/* admin routes */}
                             {
@@ -91,6 +102,12 @@ const DashbordLayout = () => {
                                         <Link to="/dashboard/add-loans" onClick={() => setMenu("add-loans")} className={`${menu === "add-loans" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
                                             <h1 className="flex justify-center items-center"><HandCoins size={18} /></h1>
                                             <span className="is-drawer-close:hidden">Add Loan</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard/pending-applications" onClick={() => setMenu("pending-application")} className={`${menu === "pending-application" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
+                                            <h1 className="flex justify-center items-center"><Clock size={18} /></h1>
+                                            <span className="is-drawer-close:hidden">Pending Application</span>
                                         </Link>
                                     </li>
                                 </>
