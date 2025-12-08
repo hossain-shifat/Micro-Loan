@@ -1,5 +1,5 @@
 
-import { Clock, DollarSign, HandCoins, Home, Inbox, LaptopMinimalCheck, MoonIcon, PanelRightClose, SunIcon, Users } from 'lucide-react'
+import { Clock, DollarSign, HandCoins, Home, Inbox, LaptopMinimalCheck, MoonIcon, NotepadText, PanelRightClose, SunIcon, Users } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router'
 import Logo from '../../Components/Logo/Logo';
@@ -87,15 +87,15 @@ const DashbordLayout = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/dashboard/user-management" onClick={() => setMenu("user-management")} className={`${menu === "user-management" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
-                                            <h1 className="flex justify-center items-center"><Users size={18} /></h1>
-                                            <span className="is-drawer-close:hidden">User Management</span>
-                                        </Link>
-                                    </li>
-                                    <li>
                                         <Link to="/dashboard/loan-applications" onClick={() => setMenu("loan-applications")} className={`${menu === "loan-applications" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
                                             <h1 className="flex justify-center items-center"><Inbox size={18} /></h1>
                                             <span className="is-drawer-close:hidden">Loan Applications</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard/user-management" onClick={() => setMenu("user-management")} className={`${menu === "user-management" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
+                                            <h1 className="flex justify-center items-center"><Users size={18} /></h1>
+                                            <span className="is-drawer-close:hidden">User Management</span>
                                         </Link>
                                     </li>
                                 </>
@@ -108,6 +108,12 @@ const DashbordLayout = () => {
                                         <Link to="/dashboard/add-loans" onClick={() => setMenu("add-loans")} className={`${menu === "add-loans" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
                                             <h1 className="flex justify-center items-center"><HandCoins size={18} /></h1>
                                             <span className="is-drawer-close:hidden">Add Loan</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard/manage-loans" onClick={() => setMenu("manage-loans")} className={`${menu === "manage-loans" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
+                                            <h1 className="flex justify-center items-center"><NotepadText size={18} /></h1>
+                                            <span className="is-drawer-close:hidden">Manage Loans</span>
                                         </Link>
                                     </li>
                                     <li>
