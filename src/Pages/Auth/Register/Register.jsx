@@ -7,6 +7,7 @@ import SocialLogin from '../SocialLogin/SocialLogin'
 import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import useAuth from '../../../Hooks/UseAuth/useAuth'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 
 const Register = () => {
@@ -55,6 +56,7 @@ const Register = () => {
                         updateUserProfile(userProfile)
                             .then(res => {
                                 console.log(res)
+                                toast.success('Account Registered Successfully!')
                                 navigate(location.state?.from?.pathname || "/");
                             })
                             .catch(error => {

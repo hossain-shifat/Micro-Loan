@@ -13,6 +13,7 @@ import UserManagement from "../../Pages/Dashboard/Admin/UserManagement/UserManag
 import AddLoan from "../../Pages/Dashboard/Manager/AddLoan/AddLoan";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AllLoans from "../../Pages/Dashboard/Admin/AllLoans/AllLoans";
+import ApplyLoan from "../../Pages/Loan/ApplyLoan/ApplyLoan";
 
 
 export const router = createBrowserRouter([
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: '/loan-details/:id',
                 element: <PrivateRoute><LoanDetails /></PrivateRoute>
+            },
+            {
+                path: '/apply-loan/:id',
+                element: <PrivateRoute><ApplyLoan /></PrivateRoute>
             },
         ]
     },

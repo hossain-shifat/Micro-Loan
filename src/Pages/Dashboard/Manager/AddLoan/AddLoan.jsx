@@ -54,6 +54,9 @@ const AddLoan = () => {
                 <h1 className="text-2xl font-bold md:text-4xl">Add Loan</h1>
             </div>
             <div className="max-w-[500px] w-full mx-auto border border-base-200 rounded-2xl bg-base-200 p-5 sm:p-10">
+                <div>
+                    <h1 className="font-bold text-2xl text-center pb-4">Fill the Form to Procced</h1>
+                </div>
                 <form onSubmit={handleSubmit(handleLoanSubmit)}>
                     <div className="space-y-3">
                         <div className="grid gap-2 w-full">

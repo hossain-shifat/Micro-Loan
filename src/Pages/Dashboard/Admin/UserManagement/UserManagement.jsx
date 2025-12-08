@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
 import Swal from 'sweetalert2'
-import { ShieldPlus, ShieldX } from 'lucide-react'
+import { Handshake, ShieldPlus, ShieldUser, ShieldX, User, UserStar } from 'lucide-react'
 
 const UserManagement = () => {
 
@@ -25,10 +25,11 @@ const UserManagement = () => {
                 if (res.data.modifiedCount) {
 
                     Swal.fire({
-                        title: "Are you sure?",
-                        text: "You won't be able to revert this!",
+                        title: "Change User Role?",
+                        text: `Are you sure you want to make ${user.displayName} a ${status}?`,
                         icon: "warning",
                         showCancelButton: true,
+                        theme: 'auto',
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor: "#d33",
                         confirmButtonText: "Yes!"
@@ -55,6 +56,9 @@ const UserManagement = () => {
     const handleMakeBorrower = (user) => {
         updateUserAction(user, 'borrower')
     }
+    const handleMakeUser = (user) => {
+        updateUserAction(user, 'user')
+    }
 
 
     return (
@@ -63,7 +67,7 @@ const UserManagement = () => {
                 <h1 className="font-bold text-2xl md:text-4xl">All Users</h1>
             </div>
             <div>
-                <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+                <div className="overflow-x-auto no-scrollbar rounded-box border border-base-content/5 bg-base-100">
                     <table className="table">
                         <thead>
                             <tr className="text-center">
@@ -91,12 +95,22 @@ const UserManagement = () => {
                                         <td className="flex justify-center items-center">
                                             {
                                                 user.role !== 'admin' ?
-                                                    <div className="space-x-2">
-                                                        <button onClick={() => handleMakeBorrower(user)} className="btn btn-primary">Make Borrower</button>
-                                                        <button onClick={() => handleMakeManager(user)} className="btn btn-primary">Make Manager</button>
+                                                    <div className="space-x-1 flex items-center relative">
+                                                        <div className="group relative" >
+                                                            <button onClick={() => handleMakeUser(user)} className="btn btn-primary btn-outline btn-sm btn-square" ><User size={18} /></button>
+                                                            <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block text-xs bg-base-300 p-1 rounded-md whitespace-nowrap shadow">Promote to User</span>
+                                                        </div>
+                                                        <div className="group relative">
+                                                            <button onClick={() => handleMakeBorrower(user)} className="btn btn-primary btn-outline btn-sm btn-square"><Handshake size={18} /></button>
+                                                            <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block text-xs bg-base-300 p-1 rounded-md whitespace-nowrap shadow">Promote to Borrower</span>
+                                                        </div>
+                                                        <div className="group relative">
+                                                            <button onClick={() => handleMakeManager(user)} className="btn btn-primary btn-outline btn-sm btn-square"><UserStar size={18} /></button>
+                                                            <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block text-xs bg-base-300 p-1 rounded-md whitespace-nowrap shadow">Promote to Manager</span>
+                                                        </div>
                                                     </div>
                                                     :
-                                                    <button disabled={user.role === 'admin' && true} className="btn btn-error">Admin</button>
+                                                    <button disabled={user.role === 'admin' && true} className="btn btn-outline btn-sm btn-square"><ShieldUser size={18} /></button>
                                             }
                                         </td>
                                     </tr>

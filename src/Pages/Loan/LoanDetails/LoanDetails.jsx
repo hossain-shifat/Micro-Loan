@@ -79,7 +79,7 @@ const LoanDetails = () => {
                                     <p>{loan.description}</p>
                                 </div>
                                 <div className="flex justify-end mt-4">
-                                    <button disabled={role === 'user' || 'borrower' ? false : true} className="btn btn-primary">Apply Now</button>
+                                    <Link to={`/apply-loan/${loan._id}`}><button disabled={role === 'user' || 'borrower' ? false : true} className="btn btn-primary">Apply Now</button></Link>
                                 </div>
                             </div>
                         </div>
