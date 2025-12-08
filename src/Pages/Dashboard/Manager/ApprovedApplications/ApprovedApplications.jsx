@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { ScanSearch, SquareCheckBig, Trash2, X } from 'lucide-react'
 import Swal from 'sweetalert2'
+import Loading from '../../../../Components/Loading/Loading'
 
 const ApprovedApplications = () => {
 
@@ -99,6 +100,10 @@ const ApprovedApplications = () => {
         });
     };
 
+
+    if (isLoading) {
+        return <Loading/>
+    }
 
 
     return (

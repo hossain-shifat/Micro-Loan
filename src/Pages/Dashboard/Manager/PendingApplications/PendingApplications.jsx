@@ -63,11 +63,11 @@ const PendingApplications = () => {
 
 
     const handleApproved = (application) => {
-        updateStatusAction(application, 'Approved')
+        updateStatusAction(application, 'approved')
     }
 
     const handleReject = (application) => {
-        updateStatusAction(application, 'Rejected')
+        updateStatusAction(application, 'rejected')
     }
 
     const handleModal = (application) => {

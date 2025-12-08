@@ -1,5 +1,5 @@
 
-import { Clock, DollarSign, HandCoins, Home, LaptopMinimalCheck, MoonIcon, PanelRightClose, SunIcon, Users } from 'lucide-react'
+import { Clock, DollarSign, HandCoins, Home, Inbox, LaptopMinimalCheck, MoonIcon, PanelRightClose, SunIcon, Users } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router'
 import Logo from '../../Components/Logo/Logo';
@@ -90,6 +90,12 @@ const DashbordLayout = () => {
                                         <Link to="/dashboard/user-management" onClick={() => setMenu("user-management")} className={`${menu === "user-management" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
                                             <h1 className="flex justify-center items-center"><Users size={18} /></h1>
                                             <span className="is-drawer-close:hidden">User Management</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard/loan-applications" onClick={() => setMenu("loan-applications")} className={`${menu === "loan-applications" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
+                                            <h1 className="flex justify-center items-center"><Inbox size={18} /></h1>
+                                            <span className="is-drawer-close:hidden">Loan Applications</span>
                                         </Link>
                                     </li>
                                 </>

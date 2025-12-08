@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
 import Swal from 'sweetalert2'
-import { Handshake, ShieldPlus, ShieldUser, ShieldX, User, UserStar } from 'lucide-react'
+import { Handshake, Search, ShieldUser, User, UserStar } from 'lucide-react'
 
 const UserManagement = () => {
 
+    const [search, setSearch] = useState('')
     const axiosSecure = useAxiosSecure()
 
     const { refetch, data: users = [] } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['users',search],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users`)
+            const res = await axiosSecure.get(`/users?search=${search}`)
             return res.data
         }
     })
@@ -67,7 +68,13 @@ const UserManagement = () => {
             <div>
                 <h1 className="font-bold text-2xl md:text-4xl">All Users</h1>
             </div>
-            <div>
+            <div className="space-y-2">
+                <div>
+                    <label className="input focus-within:outline-none border border-base-100">
+                        <Search size={16} />
+                        <input onChange={(e) => setSearch(e.target.value)} type="search" className="grow" placeholder="Search" />
+                    </label>
+                </div>
                 <div className="overflow-x-auto no-scrollbar rounded-box border border-base-content/5 bg-base-100">
                     <table className="table">
                         <thead>
