@@ -17,6 +17,7 @@ import ApplyLoan from "../../Pages/Loan/ApplyLoan/ApplyLoan";
 import MyLoans from "../../Pages/Dashboard/User/MyLoans/MyLoans";
 import ManagerRoute from "../ManagerRoute/ManagerRoute";
 import PendingApplications from "../../Pages/Dashboard/Manager/PendingApplications/PendingApplications";
+import ApprovedApplications from "../../Pages/Dashboard/Manager/ApprovedApplications/ApprovedApplications";
 
 
 export const router = createBrowserRouter([
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
             {
                 path: 'pending-applications',
                 element: <ManagerRoute><PendingApplications /></ManagerRoute>
+            },
+            {
+                path: 'approved-applications',
+                element: <ManagerRoute><ApprovedApplications /></ManagerRoute>
             },
         ]
     }

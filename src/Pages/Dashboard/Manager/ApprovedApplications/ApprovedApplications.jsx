@@ -1,19 +1,19 @@
 import { useQuery } from '@tanstack/react-query'
 import React, { useRef, useState } from 'react'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
-import { ScanSearch, SquareCheckBig, X } from 'lucide-react'
+import { ScanSearch, SquareCheckBig, Trash2, X } from 'lucide-react'
 import Swal from 'sweetalert2'
 
-const PendingApplications = () => {
+const ApprovedApplications = () => {
 
     const modalRef = useRef()
     const [loan, setLoan] = useState([])
     const axiosSecure = useAxiosSecure()
 
     const { isLoading, data: applications = [], refetch } = useQuery({
-        queryKey: ['pending-applications'],
+        queryKey: ['approved-applications'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/applications?status=pending`)
+            const res = await axiosSecure.get(`/applications?status=approved`)
             return res.data
         }
     })
@@ -45,15 +45,14 @@ const PendingApplications = () => {
                 const statusInfo = { status }
                 axiosSecure.patch(`/applications/${application._id}/status`, statusInfo)
                     .then(res => {
-                        if (res.data.modifiedCount) {
+                        if (res.data.success) {
                             refetch();
                             Swal.fire({
-                                position: "center",
-                                icon: "success",
-                                title: `Application ${status} successfully!`,
+                                icon: 'success',
+                                title: 'Deleted successfully!',
                                 showConfirmButton: false,
                                 timer: 2000
-                            })
+                            });
                         }
                     })
             }
@@ -62,28 +61,50 @@ const PendingApplications = () => {
 
 
 
-    const handleApproved = (application) => {
-        updateStatusAction(application, 'Approved')
-    }
 
     const handleReject = (application) => {
-        updateStatusAction(application, 'Rejected')
+        updateStatusAction(application, 'rejected')
     }
 
     const handleModal = (application) => {
         modalRef.current.showModal();
-
-        const matchedLoan = loans.find(loan => loan.loanId === application.loanId);
-
+        const matchedLoan = loans.find(loan => loan.loanId === application.loanId)
         setLoan(matchedLoan);
+    }
+
+    const handleRemove = (id) => {
+        Swal.fire({
+            title: 'Delete application',
+            text: 'Are you sure you want to delete this application?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/applications/${id}`)
+                    .then(res => {
+                        if (res.data.success) {
+                            refetch();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Deleted successfully!',
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
+                        }
+                    })
+            }
+        });
     };
 
-    console.log(loan)
+
 
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl">Pending Application ({applications.length})</h1>
+                <h1 className="font-bold text-2xl md:text-4xl">Approved Application ({applications.length})</h1>
             </div>
             <div>
                 <div className="overflow-x-auto no-scrollbar rounded-box border border-base-content/5 bg-base-100">
@@ -95,7 +116,7 @@ const PendingApplications = () => {
                                 <th>User Info</th>
                                 <th>Loan Amount</th>
                                 <th>Status</th>
-                                <th>Date</th>
+                                <th>Approved Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -115,20 +136,19 @@ const PendingApplications = () => {
                                         <th>{application.status}</th>
                                         <th>
                                             {
-                                                new Date(application.createdAt).toLocaleDateString()
+                                                new Date(application.statusUpdatedAt).toLocaleDateString()
                                             }
                                         </th>
-
                                         <th>
                                             <div className="space-x-2">
-                                                <div className="tooltip tooltip-top" data-tip='Approve'>
-                                                    <button onClick={() => handleApproved(application)} className="btn btn-accent btn-outline btn-sm btn-square"><SquareCheckBig size={18} /></button>
-                                                </div>
                                                 <div onClick={() => handleReject(application)} className="tooltip tooltip-top" data-tip='Reject'>
                                                     <button className="btn btn-error btn-outline btn-sm btn-square"><X size={18} /></button>
                                                 </div>
                                                 <div onClick={() => handleModal(application)} className="tooltip tooltip-top" data-tip='View Details'>
                                                     <button className="btn btn-warning btn-outline btn-sm btn-square"><ScanSearch size={18} /></button>
+                                                </div>
+                                                <div onClick={() => handleRemove(application._id)} className="tooltip tooltip-top" data-tip='Delete'>
+                                                    <button className="btn btn-error btn-outline btn-sm btn-square"><Trash2 size={18} /></button>
                                                 </div>
                                             </div>
                                         </th>
@@ -179,4 +199,4 @@ const PendingApplications = () => {
     )
 }
 
-export default PendingApplications
+export default ApprovedApplications

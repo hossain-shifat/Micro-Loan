@@ -1,5 +1,5 @@
 
-import { Clock, DollarSign, HandCoins, Home, MoonIcon, PanelRightClose, SunIcon, Users } from 'lucide-react'
+import { Clock, DollarSign, HandCoins, Home, LaptopMinimalCheck, MoonIcon, PanelRightClose, SunIcon, Users } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router'
 import Logo from '../../Components/Logo/Logo';
@@ -108,6 +108,12 @@ const DashbordLayout = () => {
                                         <Link to="/dashboard/pending-applications" onClick={() => setMenu("pending-application")} className={`${menu === "pending-application" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
                                             <h1 className="flex justify-center items-center"><Clock size={18} /></h1>
                                             <span className="is-drawer-close:hidden">Pending Application</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard/approved-applications" onClick={() => setMenu("approved-application")} className={`${menu === "approved-application" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
+                                            <h1 className="flex justify-center items-center"><LaptopMinimalCheck size={18} /></h1>
+                                            <span className="is-drawer-close:hidden">Approved Application</span>
                                         </Link>
                                     </li>
                                 </>
