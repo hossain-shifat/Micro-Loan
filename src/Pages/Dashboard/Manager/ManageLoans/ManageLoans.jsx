@@ -139,8 +139,7 @@ const ManageLoans = () => {
                         </tbody>
                     </table>
                 </div>
-                {/* Open the modal using document.getElementById('ID').showModal() method */}
-                {/* <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button> */}
+                {/* update modal */}
                 <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-bold text-xl text-center">Update</h3>

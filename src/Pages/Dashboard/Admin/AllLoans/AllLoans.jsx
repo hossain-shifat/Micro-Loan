@@ -13,7 +13,9 @@ const AllLoans = () => {
     const loanCategories = ["Personal Loan", "Home Loan", "Car Loan", "Business Loan", "Education Loan", "Medical Loan", "Travel Loan", "Emergency Loan"]
 
     const modalRef = useRef()
+    const detailsRef = useRef()
     const [updateLoan, setUpdateLoan] = useState([])
+    const [loanDetails, setLoanDetails] = useState([])
     const axiosSecure = useAxiosSecure()
 
     const { refetch, data: loans = [] } = useQuery({
@@ -53,9 +55,16 @@ const AllLoans = () => {
     };
 
 
+    const handleDetailsModal = (loan)=>{
+        detailsRef.current.showModal()
+        setLoanDetails(loan)
+    }
+
+
     const handleModal = (loan) => {
         modalRef.current.showModal()
         setUpdateLoan(loan)
+        setLoanDetails(loan)
     }
 
 
@@ -131,7 +140,7 @@ const AllLoans = () => {
                                         </td>
                                         <td className="flex gap-2">
                                             <button onClick={() => handleModal(loan)} className="btn btn-square hover:bg-primary"><Edit size={18} /></button>
-                                            <button className="btn btn-square hover:bg-primary"><BookOpenText size={18} /></button>
+                                            <button onClick={() => handleDetailsModal(loan)} className="btn btn-square hover:bg-primary"><BookOpenText size={18} /></button>
                                             <button onClick={() => handleDelete(loan._id)} className="btn btn-square hover:bg-error"><Trash2 size={18} /></button>
                                         </td>
                                     </tr>
@@ -140,6 +149,43 @@ const AllLoans = () => {
                         </tbody>
                     </table>
                 </div>
+                {/* Details Modal */}
+                <dialog ref={detailsRef} className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box">
+                        <h3 className="font-bold text-2xl text-center">Loan Detail</h3>
+                        <div className="p-4">
+                            <div className="flex flex-col md:flex-row gap-5 items-center">
+                                <div className="">
+                                    <img className="w-40 h-45 object-cover rounded-xl" src={loanDetails.photo} alt="" />
+                                </div>
+                                <div>
+                                    <div className="flex flex-col justify-between h-full space-y-5">
+                                        <div className="space-y-2">
+                                            <h1 className="font-bold  text-xl md:text-2xl">loanDetails Title: {loanDetails.loanDetailsTitle}</h1>
+                                            <div className="grid md:grid-cols-3 gap-3 items-center border-b-2 border-primary pb-5 p-2 border-dashed">
+                                                <p>Category: {loanDetails.loanDetailsCategory}</p>
+                                                <p className="md:border-l-2 md:p-2 md:border-r-2">Interest Rate: {loanDetails.interestRate}%</p>
+                                                <p>Emi Plans: {loanDetails.EMIPlans}</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h1 className="font-bold text-xl">Description:</h1>
+                                            <p>{loanDetails.description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="modal-action">
+                            <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button className="btn">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+
+                {/* update modal */}
                 <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-bold text-xl text-center">Update</h3>
