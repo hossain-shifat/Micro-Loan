@@ -13,7 +13,7 @@ const AddLoan = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
 
-    const loanCategories = ["Personal Loan", "Home Loan", "Car Loan", "Business Loan", "Education Loan", "Medical Loan", "Travel Loan", "Emergency Loan"];
+    const loanCategories = ["Personal Loan", "Home Loan", "Car Loan", "Business Loan", "Education Loan", "Medical Loan", "Travel Loan", "Emergency Loan"]
 
     const handleLoanSubmit = (data) => {
 
