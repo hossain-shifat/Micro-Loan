@@ -26,7 +26,7 @@ const LoanDetails = () => {
     const similarLoans = loans.slice(0, 6)
 
     const loan = loans.find((l) => l._id === id);
-    console.log(loan)
+
 
     return (
         <div className="space-y-10">
@@ -74,9 +74,14 @@ const LoanDetails = () => {
                                         <p>Emi Plans: {loan.EMIPlans}</p>
                                     </div>
                                 </div>
-                                <div>
-                                    <h1 className="font-bold text-xl">Description:</h1>
-                                    <p>{loan.description}</p>
+                                <div className="space-y-1">
+                                    <div>
+                                        <h1>Required Document: <span>{loan.requiredDocuments}</span></h1>
+                                    </div>
+                                    <div>
+                                        <h1 className="font-bold text-xl">Description:</h1>
+                                        <p>{loan.description}</p>
+                                    </div>
                                 </div>
                                 <div className="flex justify-end mt-4">
                                     <Link to={`/apply-loan/${loan._id}`}><button disabled={role === 'user' || 'borrower' ? false : true} className="btn btn-primary">Apply Now</button></Link>
