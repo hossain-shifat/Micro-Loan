@@ -42,7 +42,7 @@ const AvailableLoans = () => {
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {
-                    combinedLoans.filter(loan => loan.showOnHome === true).map((loan, index) => (
+                    combinedLoans.filter(loan => loan.showOnHome).map((loan, index) => (
                         <div key={index} className="flex p-5 gap-5 border border-base-100 bg-base-100 w-full rounded-xl">
                             <div>
                                 <img className="w-40 h-40 object-cover rounded-xl" src={loan.photo} alt="" />

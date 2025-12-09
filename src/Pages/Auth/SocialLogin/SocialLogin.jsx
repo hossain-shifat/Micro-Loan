@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router'
 import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import useAuth from '../../../Hooks/UseAuth/useAuth'
 import { assets } from '../../../assets/assets'
+import { toast } from 'react-toastify'
 
 const SocialLogin = () => {
 
@@ -26,6 +27,7 @@ const SocialLogin = () => {
                 axiosSecure.post('/users', userInfo)
                     .then(res => {
                         console.log('user data has been stored', res.data)
+                        toast.success("Account Registered Successfully!")
                         navigate(location.state?.from?.pathname || "/");
                     })
 

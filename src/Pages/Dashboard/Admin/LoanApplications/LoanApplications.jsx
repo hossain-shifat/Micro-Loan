@@ -67,7 +67,7 @@ const LoanApplications = () => {
                                         <th>{index + 1}</th>
                                         <th>{application.loanId}</th>
                                         <th>
-                                            <div>
+                                            <div className="grid justify-center text-start">
                                                 <h1>{application.firstName} {application.lastName}</h1>
                                                 <h1>{application.email}</h1>
                                             </div>

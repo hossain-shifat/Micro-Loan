@@ -1,5 +1,5 @@
 
-import { Clock, DollarSign, HandCoins, Home, Inbox, LaptopMinimalCheck, MoonIcon, NotepadText, PanelRightClose, SunIcon, Users } from 'lucide-react'
+import { Clock, DollarSign, HandCoins, Home, Inbox, LaptopMinimalCheck, MoonIcon, NotepadText, PanelRightClose, SunIcon, User, Users } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router'
 import Logo from '../../Components/Logo/Logo';
@@ -33,15 +33,17 @@ const DashbordLayout = () => {
                                     : (<SunIcon className="size-5 text-yellow-400" size={23} />)
                             }
                         </button>
-                        <div className="flex gap-2">
-                            <div>
-                                <img className="w-10.5 h-10.5 rounded-full object-cover" src={user.photoURL} alt="" />
+                        <Link to='/dashboard/my-profile'>
+                            <div className="flex gap-2">
+                                <div>
+                                    <img className="w-10.5 h-10.5 rounded-full object-cover" src={user.photoURL} alt="" />
+                                </div>
+                                <div className="leading-5">
+                                    <h1 className="font-bold">{user.displayName}</h1>
+                                    <p>{role}</p>
+                                </div>
                             </div>
-                            <div className="leading-5">
-                                <h1 className="font-bold">{user.displayName}</h1>
-                                <p>{role}</p>
-                            </div>
-                        </div>
+                        </Link>
                     </nav>
                 </nav>
                 <div className="m-3 md:m-5 p-5 md:p-10 rounded-2xl min-h-screen bg-base-200">
@@ -71,6 +73,12 @@ const DashbordLayout = () => {
                                         <Link to="/dashboard/my-loans" onClick={() => setMenu("my-loans")} className={`${menu === "my-loans" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
                                             <h1 className="flex justify-center items-center"><DollarSign size={18} /></h1>
                                             <span className="is-drawer-close:hidden">My Loans</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard/my-profile" onClick={() => setMenu("my-profile")} className={`${menu === "my-profile" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
+                                            <h1 className="flex justify-center items-center"><User size={18} /></h1>
+                                            <span className="is-drawer-close:hidden">My Profile</span>
                                         </Link>
                                     </li>
                                 </>
@@ -126,6 +134,12 @@ const DashbordLayout = () => {
                                         <Link to="/dashboard/approved-applications" onClick={() => setMenu("approved-application")} className={`${menu === "approved-application" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
                                             <h1 className="flex justify-center items-center"><LaptopMinimalCheck size={18} /></h1>
                                             <span className="is-drawer-close:hidden">Approved Application</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/dashboard/my-profile" onClick={() => setMenu("my-profile")} className={`${menu === "my-profile" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
+                                            <h1 className="flex justify-center items-center"><User size={18} /></h1>
+                                            <span className="is-drawer-close:hidden">My Profile</span>
                                         </Link>
                                     </li>
                                 </>

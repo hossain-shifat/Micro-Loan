@@ -62,8 +62,8 @@ const Navbar = () => {
                 {
                     user ?
                         <div className="flex gap-4 items-center">
-                            <div>
-                                <User />
+                            <div className="tooltip tooltip-bottom bg-base-300 p-1.5 rounded-full" data-tip='My Profile'>
+                                <Link to='/dashboard/my-profile'> <User size={28}/></Link>
                             </div>
                             <button onClick={handleLogout} className="btn btn-error btn-outline">Logout</button>
                         </div>

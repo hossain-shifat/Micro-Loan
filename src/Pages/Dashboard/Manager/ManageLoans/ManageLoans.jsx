@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import useAuth from '../../../../Hooks/UseAuth/useAuth'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
@@ -11,7 +11,7 @@ import axios from 'axios'
 const ManageLoans = () => {
 
 
-    const { register, handleSubmit, formState: { errors }, } = useForm()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
     const loanCategories = ["Personal Loan", "Home Loan", "Car Loan", "Business Loan", "Education Loan", "Medical Loan", "Travel Loan", "Emergency Loan"]
 
@@ -19,6 +19,7 @@ const ManageLoans = () => {
     const [updateLoan, setUpdateLoan] = useState([])
     const axiosSecure = useAxiosSecure()
     const { user } = useAuth()
+
 
     const { isLoading, data: loans = [], refetch } = useQuery({
         queryKey: ['loans', user?.email],
@@ -80,6 +81,7 @@ const ManageLoans = () => {
                     .then(res => {
                         if (res.data.modifiedCount) {
                             modalRef.current.close()
+                            reset()
                             refetch()
                             Swal.fire({
                                 position: "center",

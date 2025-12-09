@@ -20,6 +20,8 @@ import PendingApplications from "../../Pages/Dashboard/Manager/PendingApplicatio
 import ApprovedApplications from "../../Pages/Dashboard/Manager/ApprovedApplications/ApprovedApplications";
 import LoanApplications from "../../Pages/Dashboard/Admin/LoanApplications/LoanApplications";
 import ManageLoans from "../../Pages/Dashboard/Manager/ManageLoans/ManageLoans";
+import MyProfile from "../../Pages/MyProfile/MyProfile";
+import UpdateProfile from "../../Pages/Auth/UpdateProfile/UpdateProfile";
 
 
 export const router = createBrowserRouter([
@@ -57,6 +59,10 @@ export const router = createBrowserRouter([
                 path: '/login',
                 Component: Login
             },
+            {
+                path: '/update-profile',
+                Component: UpdateProfile
+            },
         ]
     },
     {
@@ -70,6 +76,10 @@ export const router = createBrowserRouter([
             {
                 path: 'my-loans',
                 Component: MyLoans
+            },
+            {
+                path: '/dashboard/my-profile',
+                Component: MyProfile
             },
             // admin route
             {

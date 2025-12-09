@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import useAuth from '../../../Hooks/UseAuth/useAuth'
 import { Link, useLocation, useNavigate } from 'react-router'
 import SocialLogin from '../SocialLogin/SocialLogin'
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -16,7 +17,13 @@ const Login = () => {
     const handleLogin = (data) => {
         singInUser(data.email, data.password)
             .then(result => {
-                console.log(result)
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Account Login Successfully!",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 navigate(location.state?.from?.pathname || "/");
             })
             .catch(error => {
@@ -27,7 +34,7 @@ const Login = () => {
 
     return (
         <div className="max-w-full mx-auto md:mx-15">
-            <div class="w-full max-w-[450px] p-7 rounded-2xl">
+            <div className="w-full max-w-[450px] p-7 rounded-2xl">
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="space-y-1">
                         <h1 className="font-bold text-4xl">Welcome Back</h1>

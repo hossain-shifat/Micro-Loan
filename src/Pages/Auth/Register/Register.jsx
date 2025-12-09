@@ -8,6 +8,7 @@ import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import useAuth from '../../../Hooks/UseAuth/useAuth'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import Swal from 'sweetalert2'
 
 
 const Register = () => {
@@ -54,14 +55,16 @@ const Register = () => {
                             photoURL: photoURL
                         }
                         updateUserProfile(userProfile)
-                            .then(res => {
-                                console.log(res)
-                                toast.success('Account Registered Successfully!')
-                                navigate(location.state?.from?.pathname || "/");
-                            })
-                            .catch(error => {
-                                console.log(error)
-                            })
+
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Account Registered Successfully!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        navigate(location.state?.from?.pathname || "/")
+
                     })
             })
             .catch(error => {
@@ -79,13 +82,13 @@ const Register = () => {
                         <p>Sign up to continue.</p>
                     </div>
                     {/* name feild */}
-                    <div>
+                    <div className="grid gap-2">
                         <label className="text-lg">Name</label>
                         <input type="text" placeholder='Name' {...register('name', { required: true })} className="w-full p-3 bg-base-100 rounded-xl border focus-within:outline outline-[#94A3B8] placeholder:text-[#94A3B8] text-base-content text-md" />
                         {errors.name?.type === 'required' && <p className="text-red-500">Name is Required!</p>}
                     </div>
                     {/* image upload feild */}
-                    <div>
+                    <div className="grid gap-2">
                         <label className="text-lg">Image</label>
                         <label className="flex w-full border rounded-xl">
                             <span className="w-full flex justify-center items-center bg-primary rounded-l-xl font-bold text-white text-center">Choose File</span>
@@ -93,14 +96,27 @@ const Register = () => {
                         </label>
                         {errors.photo?.type === 'required' && <p className="text-red-500">Image is Required!</p>}
                     </div>
-                    {/* email feild */}
+                    {/* role dropdown */}
                     <div>
+                        <fieldset className="fieldset">
+                            <div>
+                                <label className="text-lg">Select Role</label>
+                                <select {...register("role", { required: true })} className="w-full p-3 bg-base-100 rounded-xl border focus-within:outline outline-[#94A3B8] text-base-content text-md" defaultValue="borrower" >
+                                    <option value="borrower">Borrower</option>
+                                    <option value="manager">Manager</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                        {errors.role?.type === 'required' && <p className="text-red-500">Role is Required!</p>}
+                    </div>
+                    {/* email feild */}
+                    <div className="grid gap-2">
                         <label className="text-lg">Email</label>
                         <input type="email" placeholder='Email' {...register('email', { required: true })} className="w-full p-3 bg-base-100 rounded-xl border focus-within:outline outline-[#94A3B8] placeholder:text-[#94A3B8] text-base-content text-md" />
                         {errors.email?.type === 'required' && <p className="text-red-500">Email is Required!</p>}
                     </div>
                     {/* password feild */}
-                    <div>
+                    <div className="grid gap-2">
                         <label>Password</label>
                         <div className="relative">
                             <input type={showPassword ? 'text' : 'password'} placeholder='Password' {...register('password', { required: true, minLength: 6 })} className="w-full p-3 bg-base-100 rounded-xl border focus-within:outline outline-[#94A3B8] placeholder:text-[#94A3B8] text-base-content text-md" />
