@@ -80,13 +80,14 @@ const ManageLoans = () => {
                     .then(res => {
                         if (res.data.modifiedCount) {
                             modalRef.current.close()
+                            refetch()
                             Swal.fire({
                                 position: "center",
                                 icon: "success",
                                 title: "Loan Submitted",
                                 showConfirmButton: false,
                                 timer: 2000
-                            });
+                            })
                         }
                     })
             })
