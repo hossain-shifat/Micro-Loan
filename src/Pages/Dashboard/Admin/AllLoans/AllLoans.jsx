@@ -25,6 +25,34 @@ const AllLoans = () => {
     })
 
 
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: 'Delete application',
+            text: 'Are you sure you want to delete this application?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/loans/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount) {
+                            refetch();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Deleted successfully!',
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
+                        }
+                    })
+            }
+        });
+    };
+
+
     const handleModal = (loan) => {
         modalRef.current.showModal()
         setUpdateLoan(loan)
@@ -102,15 +130,9 @@ const AllLoans = () => {
                                             <button className="btn btn-success btn-outline btn-square">{loan.showOnHome ? <Eye size={20} /> : <EyeClosed size={20} />}</button>
                                         </td>
                                         <td className="flex gap-2">
-                                            <button onClick={() => handleModal(loan)} className="btn btn-square hover:bg-primary">
-                                                <Edit size={16} />
-                                            </button>
-                                            <button className="btn btn-square hover:bg-primary">
-                                                <BookOpenText size={16} />
-                                            </button>
-                                            <button className="btn btn-square hover:bg-primary">
-                                                <Trash2 size={16} />
-                                            </button>
+                                            <button onClick={() => handleModal(loan)} className="btn btn-square hover:bg-primary"><Edit size={18} /></button>
+                                            <button className="btn btn-square hover:bg-primary"><BookOpenText size={18} /></button>
+                                            <button onClick={() => handleDelete(loan._id)} className="btn btn-square hover:bg-error"><Trash2 size={18} /></button>
                                         </td>
                                     </tr>
                                 ))
