@@ -16,6 +16,7 @@ const AllLoans = () => {
     const detailsRef = useRef()
     const [updateLoan, setUpdateLoan] = useState([])
     const [loanDetails, setLoanDetails] = useState([])
+    const [selectedCategory, setSelectedCategory] = useState("All")
     const axiosSecure = useAxiosSecure()
 
     const { refetch, data: loans = [] } = useQuery({
@@ -55,7 +56,7 @@ const AllLoans = () => {
     };
 
 
-    const handleDetailsModal = (loan)=>{
+    const handleDetailsModal = (loan) => {
         detailsRef.current.showModal()
         setLoanDetails(loan)
     }
@@ -101,6 +102,24 @@ const AllLoans = () => {
     }
 
 
+    const handleShowOnHomeToggle = (loan) => {
+        const updatedValue = !loan.showOnHome
+        const updateInfo = { showOnHome: updatedValue }
+        axiosSecure.patch(`/loans/${loan._id}`, updateInfo)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetch()
+                    Swal.fire({
+                        icon: "success",
+                        title: `Loan ${updatedValue ? "shown" : "hidden"} on Home`,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+            })
+    }
+
+
     return (
         <div className="space-y-10">
             <div>
@@ -116,14 +135,26 @@ const AllLoans = () => {
                                 <th>Title</th>
                                 <th>Interest</th>
                                 <th>Category</th>
-                                <th>Created By</th>
+                                <th>
+                                    <div className="flex w-full items-center">
+                                        <h1>Category by: </h1>
+                                        <select className="select w-full select-sm border-none focus-within:outline-none" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} >
+                                            <option value="All">All</option>
+                                            {loanCategories.map((cat, idx) => (
+                                                <option key={idx} value={cat}>
+                                                    {cat}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </th>
                                 <th>Show on Home</th>
                                 <th>Admin Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                loans.map((loan, index) => (
+                                loans.filter(loan => selectedCategory === "All" || loan.loanCategory === selectedCategory).map((loan, index) => (
                                     <tr key={index} className="text-center">
                                         <th>{index + 1}</th>
                                         <td>
@@ -134,9 +165,9 @@ const AllLoans = () => {
                                         <td>{loan.loanTitle}</td>
                                         <td>{loan.interestRate}%</td>
                                         <td>{loan.loanCategory}</td>
-                                        <td>{loan.email}</td>
+                                        <td>{loan.loanCategory}</td>
                                         <td>
-                                            <button className="btn btn-success btn-outline btn-square">{loan.showOnHome ? <Eye size={20} /> : <EyeClosed size={20} />}</button>
+                                            <input type="checkbox" className="checkbox checkbox-primary checkbox-sm rounded-sm" checked={loan.showOnHome || false} onChange={() => handleShowOnHomeToggle(loan)} />
                                         </td>
                                         <td className="flex gap-2">
                                             <button onClick={() => handleModal(loan)} className="btn btn-square hover:bg-primary"><Edit size={18} /></button>
@@ -244,7 +275,7 @@ const AllLoans = () => {
                                     </div>
                                     <div className="my-6 px-2 flex justify-between gap-2 w-full">
                                         <label>Show on Home</label>
-                                        <input type="checkbox" {...register("showOnHome")} className="toggle toggle-primary" />
+                                        <input type="checkbox" checked={updateLoan.showOnHome} {...register("showOnHome")} className="toggle toggle-primary" />
                                     </div>
                                     <div className="w-full mt-5">
                                         <button className="btn btn-primary w-full">Update Loan</button>
