@@ -42,7 +42,7 @@ const AllLoan = () => {
                                         <h1 className="font-bold text-2xl">${loan.maxLoanLimit}</h1>
                                     </div>
                                     <div className="w-full">
-                                        <Link to={`/loan-details/${loan._id}`}><button className="btn btn-primary w-full">View Details</button></Link>
+                                        <Link to={`/loan-details/${loan._id}`}><button className="btn btn-primary">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>

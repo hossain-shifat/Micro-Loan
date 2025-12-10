@@ -145,7 +145,7 @@ const ApprovedApplications = () => {
                                             }
                                         </th>
                                         <th>
-                                            <div className="space-x-2">
+                                            <div className="flex gap-2">
                                                 <div onClick={() => handleReject(application)} className="tooltip tooltip-top" data-tip='Reject'>
                                                     <button className="btn btn-error btn-outline btn-sm btn-square"><X size={18} /></button>
                                                 </div>

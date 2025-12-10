@@ -3,6 +3,7 @@ import { assets } from '../../../assets/assets'
 import { ArrowRight } from 'lucide-react'
 import SplitText from '../../../Components/Animations/SplitText/SplitText'
 import FadeIn from '../../../Components/Animations/FadeIn/FadeIn'
+import { Link } from 'react-router'
 
 const Banner = () => {
     return (
@@ -19,7 +20,7 @@ const Banner = () => {
                         <FadeIn>
                             <p>Our loan services offer a hassle-free and streamlined borrowing experience, providing you with the funds you need in a timely manner to meet your financial requirements.</p>
                         </FadeIn>
-                        <button className="btn btn-primary btn-outline flex justify-center items-center rounded-full">Get started <ArrowRight size={18} /></button>
+                        <Link to='/all-loans'><button className="btn btn-primary btn-outline flex justify-center items-center rounded-full">Get started <ArrowRight size={18} /></button></Link>
                     </div>
                 </div>
             </div>

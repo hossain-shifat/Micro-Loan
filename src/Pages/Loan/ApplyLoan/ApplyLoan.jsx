@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import useAuth from '../../../Hooks/UseAuth/useAuth'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { useQuery } from '@tanstack/react-query'
 import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import Loading from '../../../Components/Loading/Loading'
@@ -11,6 +11,7 @@ const ApplyLoan = () => {
 
     const { user } = useAuth()
     const { id } = useParams()
+    const navigate = useNavigate()
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
@@ -43,6 +44,9 @@ const ApplyLoan = () => {
                         showConfirmButton: false,
                         theme: 'auto',
                         timer: 1500
+                    })
+                    .then(()=>{
+                        navigate('/dashboard/my-loans')
                     })
                 }
             })
