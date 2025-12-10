@@ -4,6 +4,7 @@ import useAxiosSecure from '../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import useAuth from '../../../Hooks/UseAuth/useAuth'
 import { assets } from '../../../assets/assets'
 import { toast } from 'react-toastify'
+import Swal from 'sweetalert2'
 
 const SocialLogin = () => {
 
@@ -27,7 +28,13 @@ const SocialLogin = () => {
                 axiosSecure.post('/users', userInfo)
                     .then(res => {
                         console.log('user data has been stored', res.data)
-                        toast.success("Account Registered Successfully!")
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Account Registered Successfully!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                         navigate(location.state?.from?.pathname || "/");
                     })
 

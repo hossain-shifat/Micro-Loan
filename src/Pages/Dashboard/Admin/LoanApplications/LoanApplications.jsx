@@ -37,7 +37,7 @@ const LoanApplications = () => {
             <div className="space-y-2">
                 <div className="dropdown dropdown-bottom flex justify-end">
                     <div tabIndex={0} role="button" className="btn m-1">
-                        {statusFilter === 'all' ? 'All' : statusFilter.charAt(0).toUpperCase() + statusFilter.slice(1)}<ChevronDown size={18}/>
+                        {statusFilter === 'all' ? 'All' : statusFilter.charAt(0).toUpperCase() + statusFilter.slice(1)}<ChevronDown size={18} />
                     </div>
                     <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow-sm">
                         <li><a onClick={() => setStatusFilter('all')}>All</a></li>
@@ -56,7 +56,7 @@ const LoanApplications = () => {
                                 <th>User Info</th>
                                 <th>Loan Amount</th>
                                 <th>Status</th>
-                                <th>Approved Date</th>
+                                <th>Approved/Reject Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

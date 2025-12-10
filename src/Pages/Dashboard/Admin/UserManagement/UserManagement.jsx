@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
 import Swal from 'sweetalert2'
-import { Handshake, Search, ShieldUser, User, UserStar } from 'lucide-react'
+import { Edit, Handshake, Search, ShieldUser, User, UserStar } from 'lucide-react'
 
 const UserManagement = () => {
 
@@ -104,6 +104,10 @@ const UserManagement = () => {
                                             {
                                                 user.role !== 'admin' ?
                                                     <div className="space-x-1 flex items-center relative">
+                                                        <div className="group relative" >
+                                                            <button className="btn btn-primary btn-outline btn-sm btn-square" ><Edit size={18} /></button>
+                                                            <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block text-xs bg-base-300 p-1 rounded-md whitespace-nowrap shadow">Edit</span>
+                                                        </div>
                                                         <div className="group relative" >
                                                             <button onClick={() => handleMakeUser(user)} className="btn btn-primary btn-outline btn-sm btn-square" ><User size={18} /></button>
                                                             <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block text-xs bg-base-300 p-1 rounded-md whitespace-nowrap shadow">Promote to User</span>

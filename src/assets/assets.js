@@ -7,6 +7,7 @@ import footerImg from './footer-bg.png'
 import newsLetter from './newsletter.png'
 import auth from './auth.png'
 import google from './google.png'
+import error404 from './error404.png'
 
 
 
@@ -15,7 +16,8 @@ export const assets = {
     footerImg,
     newsLetter,
     auth,
-    google
+    google,
+    error404
 }
 
 export const process = [

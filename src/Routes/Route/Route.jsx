@@ -22,12 +22,14 @@ import LoanApplications from "../../Pages/Dashboard/Admin/LoanApplications/LoanA
 import ManageLoans from "../../Pages/Dashboard/Manager/ManageLoans/ManageLoans";
 import MyProfile from "../../Pages/MyProfile/MyProfile";
 import UpdateProfile from "../../Pages/Auth/UpdateProfile/UpdateProfile";
+import Error404 from "../../Components/Errors/Error404";
 
 
 export const router = createBrowserRouter([
     {
         path: '/',
         Component: Root,
+        errorElement: <Error404 />,
         children: [
             {
                 index: true,
