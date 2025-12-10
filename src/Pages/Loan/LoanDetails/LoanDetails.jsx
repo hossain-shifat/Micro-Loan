@@ -67,12 +67,15 @@ const LoanDetails = () => {
                         <div>
                             <div className="flex flex-col justify-between h-full space-y-5">
                                 <div className="space-y-2">
-                                    <h1 className="font-bold  text-xl md:text-2xl">{loan.loanTitle}</h1>
+                                    <h1 className="font-bold text-xl md:text-2xl">{loan.loanTitle}</h1>
                                     <div className="grid grid-cols-3 gap-3 items-center border-b-2 border-primary pb-5 border-dashed">
                                         <p>Category: {loan.loanCategory}</p>
                                         <p className="border-l-2 p-2 border-r-2">Interest Rate: {loan.interestRate}%</p>
                                         <p>Emi Plans: {loan.EMIPlans}</p>
                                     </div>
+                                </div>
+                                <div>
+                                    <h1 className="font-bold text-2xl">${loan.maxLoanLimit} <span className="text-[0.7rem]">(Max Loan Limit)</span></h1>
                                 </div>
                                 <div className="space-y-1">
                                     <div>

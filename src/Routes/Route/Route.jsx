@@ -23,6 +23,7 @@ import ManageLoans from "../../Pages/Dashboard/Manager/ManageLoans/ManageLoans";
 import MyProfile from "../../Pages/MyProfile/MyProfile";
 import UpdateProfile from "../../Pages/Auth/UpdateProfile/UpdateProfile";
 import Error404 from "../../Components/Errors/Error404";
+import PaymentSuccess from "../../Pages/PaymentSuccess/PaymentSuccess";
 
 
 export const router = createBrowserRouter([
@@ -80,8 +81,12 @@ export const router = createBrowserRouter([
                 Component: MyLoans
             },
             {
-                path: '/dashboard/my-profile',
+                path: 'my-profile',
                 Component: MyProfile
+            },
+            {
+                path: 'payment-success',
+                Component: PaymentSuccess
             },
             // admin route
             {

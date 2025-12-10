@@ -21,6 +21,7 @@ const AllLoan = () => {
         return <Loading />
     }
 
+
     return (
         <div className="space-y-10">
             <div className="font-bold text-2xl md:text-4xl">
