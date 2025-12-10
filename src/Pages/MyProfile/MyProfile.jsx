@@ -14,10 +14,10 @@ const MyProfile = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-fr gap-4">
-            <div className="md:row-span-2 space-y-3 p-5 border border-base-200 bg-base-200 rounded-2xl shadow-sm">
+        <div className="max-w-[650px] mx-auto min-h-dvh flex justify-center items-center">
+            <div className="space-y-3 p-5 border border-base-100 bg-base-100 rounded-2xl shadow-sm">
                 <div>
-                    <img className="w-65 h-65 object-cover rounded-xl mx-auto" src={user.photoURL} alt="" />
+                    <img className="w-full h-65 object-cover rounded-xl mx-auto" src={user.photoURL} alt="" />
                 </div>
                 <div className="px-2 space-y-2">
                     <div className="flex justify-between">
@@ -28,7 +28,7 @@ const MyProfile = () => {
                     </div>
                     <div className="flex gap-3">
                         <h1 className="font-bold text-md">Name:</h1>
-                        <p className="font-semibold text-md capitalize">{user.displayName} <span className="capitalize">({role})</span></p>
+                        <p className="font-semibold text-md capitalize flex gap-1">{user.displayName} <span className="capitalize"> ({role})</span></p>
                     </div>
                     <div className="flex gap-3">
                         <h1>Email:</h1>
@@ -47,7 +47,6 @@ const MyProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className="md:col-span-2 auto-rows-fr border border-base-200 p-5 bg-base-200 rounded-2xl shadow-sm"></div>
         </div>
     )
 }

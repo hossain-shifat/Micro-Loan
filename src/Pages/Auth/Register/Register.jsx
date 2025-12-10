@@ -40,7 +40,8 @@ const Register = () => {
                         const userInfo = {
                             email: data.email,
                             displayName: data.name,
-                            photoURL: photoURL
+                            photoURL: photoURL,
+                            applyFor: data.applyFor
                         }
                         axiosSecure.post('/users', userInfo)
                             .then(res => {
@@ -101,13 +102,13 @@ const Register = () => {
                         <fieldset className="fieldset">
                             <div>
                                 <label className="text-lg">Select Role</label>
-                                <select {...register("role", { required: true })} className="w-full p-3 bg-base-100 rounded-xl border focus-within:outline outline-[#94A3B8] text-base-content text-md" defaultValue="borrower" >
+                                <select {...register("applyFor", { required: true })} className="w-full p-3 bg-base-100 rounded-xl border focus-within:outline outline-[#94A3B8] text-base-content text-md" defaultValue="borrower" >
                                     <option value="borrower">Borrower</option>
                                     <option value="manager">Manager</option>
                                 </select>
                             </div>
                         </fieldset>
-                        {errors.role?.type === 'required' && <p className="text-red-500">Role is Required!</p>}
+                        {errors.applyFor?.type === 'required' && <p className="text-red-500">Role is Required!</p>}
                     </div>
                     {/* email feild */}
                     <div className="grid gap-2">

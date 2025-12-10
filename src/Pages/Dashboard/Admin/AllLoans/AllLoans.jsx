@@ -48,12 +48,12 @@ const AllLoans = () => {
                                 title: 'Deleted successfully!',
                                 showConfirmButton: false,
                                 timer: 2000
-                            });
+                            })
                         }
                     })
             }
-        });
-    };
+        })
+    }
 
 
     const handleDetailsModal = (loan) => {
