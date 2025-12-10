@@ -8,6 +8,7 @@ import useAxiosSecure from '../Axios/AxiosSecure/useAxiosSecure'
 const useRole = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
+    
     const { isLoading: roleLoading, data: role = 'user' } = useQuery({
         queryKey: ['user-role', user?.email],
         queryFn: async () => {
