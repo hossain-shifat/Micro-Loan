@@ -5,10 +5,11 @@ import FadeIn from '../../../Components/Animations/FadeIn/FadeIn'
 const OurJourney = () => {
     return (
         <div className="space-y-10">
-            <div>
+            <div className="space-y-3">
                 <h1 className="font-bold text-2xl md:text-4xl text-center">Our Journey</h1>
+                <p className="text-center px-4">From a Small Startup to a Trusted Technology Partner</p>
             </div>
-            <div className="max-w-[900px] mx-auto">
+            <div className="max-w-[900px] mx-auto p-4">
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                     {
                         journeyTimeline.map((timeLine, index) => (
