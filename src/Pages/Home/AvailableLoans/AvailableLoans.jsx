@@ -3,6 +3,7 @@ import React from 'react'
 import useAxios from '../../../Hooks/Axios/Axios/useAxios'
 import { Link } from 'react-router'
 import Loading from '../../../Components/Loading/Loading'
+import FadeIn from '../../../Components/Animations/FadeIn/FadeIn'
 
 const AvailableLoans = () => {
 
@@ -43,21 +44,23 @@ const AvailableLoans = () => {
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {
                     combinedLoans.filter(loan => loan.showOnHome).map((loan, index) => (
-                        <div key={index} className="flex p-5 gap-5 border border-base-100 bg-base-100 w-full rounded-xl">
-                            <div>
-                                <img className="w-40 h-40 object-cover rounded-xl" src={loan.photo} alt="" />
-                            </div>
-                            <div className="flex flex-col justify-between">
+                        <FadeIn duration={0.2*index}>
+                            <div key={index} className="flex p-5 gap-5 border border-base-100 bg-base-100 w-full rounded-xl">
                                 <div>
-                                    <h1 className="font-bold text-xl">{loan.loanTitle}</h1>
-                                    <h1 className="">{loan.loanCategory}</h1>
-                                    <h1 className="font-bold text-2xl">${loan.maxLoanLimit}</h1>
+                                    <img className="w-40 h-40 object-cover rounded-xl" src={loan.photo} alt="" />
                                 </div>
-                                <div className="w-full">
-                                    <Link to={`/loan-details/${loan._id}`}><button className="btn btn-primary w-full">View Details</button></Link>
+                                <div className="flex flex-col justify-between">
+                                    <div>
+                                        <h1 className="font-bold text-xl">{loan.loanTitle}</h1>
+                                        <h1 className="">{loan.loanCategory}</h1>
+                                        <h1 className="font-bold text-2xl">${loan.maxLoanLimit}</h1>
+                                    </div>
+                                    <div className="w-full">
+                                        <Link to={`/loan-details/${loan._id}`}><button className="btn btn-primary w-full">View Details</button></Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </FadeIn>
                     ))
                 }
             </div>

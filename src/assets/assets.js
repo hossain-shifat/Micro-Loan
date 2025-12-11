@@ -8,6 +8,8 @@ import newsLetter from './newsletter.png'
 import auth from './auth.png'
 import google from './google.png'
 import error404 from './error404.png'
+import { Eye, Sparkles, Target, TrendingUp } from 'lucide-react'
+
 
 
 
@@ -46,3 +48,30 @@ export const process = [
         img: approved
     },
 ]
+
+export const missionVisionData = [
+    {
+        id: 1,
+        icon: "Target",
+        title: "Our Mission",
+        detail: "To empower individuals with a modern microloan management system that streamlines applications, enhances transparency, and supports financial independence. LoanBee is committed to making financial services simple, secure, and accessible."
+    },
+    {
+        id: 2,
+        icon: 'Eye',
+        title: "Our Vision",
+        detail: "To become the most trusted digital microloan platform, redefining how people access financial opportunities. We envision a future where technology enables faster, smarter, and more inclusive lending for everyone."
+    },
+    {
+        id: 3,
+        icon: 'TrendingUp',
+        title: "Our Mission",
+        detail: "To continuously innovate and deliver powerful tools that help borrowers make informed decisions and managers operate efficiently. LoanBee aims to create a seamless financial ecosystem driven by modern technology."
+    },
+    {
+        id: 4,
+        icon: 'Sparkles',
+        title: "Our Vision",
+        detail: "To shape a world where financial services blend perfectly with intelligent digital solutions. Our goal is to inspire trust, promote growth, and make microloan management effortless for all."
+    }
+];

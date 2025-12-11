@@ -30,7 +30,7 @@ const AllLoan = () => {
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {
                     loans.map((loan, index) => (
-                        <FadeIn key={index} delay={0.1 * index}>
+                        <FadeIn key={index} delay={0.2 * index}>
                             <div key={index} className="flex p-5 gap-5 border border-base-200 bg-base-200 w-full rounded-xl">
                                 <div>
                                     <img className="w-40 h-40 object-cover rounded-xl" src={loan.photo} alt="" />
