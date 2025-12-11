@@ -32,6 +32,12 @@ const GetInTouch = () => {
                     </div>
                 </FadeIn>
             </div>
+            <FadeIn>
+                <div className="flex gap-3 justify-center items-center">
+                    <button className="btn btn-primary">Get Start</button>
+                    <button className="btn btn-primary btn-outline">Schedule a Call</button>
+                </div>
+            </FadeIn>
         </div>
     )
 }
