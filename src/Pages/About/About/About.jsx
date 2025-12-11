@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Header/Header'
 import FadeIn from '../../../Components/Animations/FadeIn/FadeIn'
 import MissionAndVision from '../MissionAndVision/MissionAndVision'
+import OurJourney from '../OurJourney/OurJourney'
 
 const About = () => {
     return (
@@ -11,6 +12,9 @@ const About = () => {
             </FadeIn>
             <FadeIn>
                 <MissionAndVision />
+            </FadeIn>
+            <FadeIn>
+                <OurJourney />
             </FadeIn>
         </div>
     )

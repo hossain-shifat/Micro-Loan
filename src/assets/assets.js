@@ -75,3 +75,66 @@ export const missionVisionData = [
         detail: "To shape a world where financial services blend perfectly with intelligent digital solutions. Our goal is to inspire trust, promote growth, and make microloan management effortless for all."
     }
 ];
+
+export const journeyTimeline = [
+    {
+        id: 1,
+        year: 2008,
+        title: "The Idea Was Born",
+        detail: "A small group of tech-minded students identified how difficult microloan access was for ordinary people. The first concept of a digital loan management system was created."
+    },
+    {
+        id: 2,
+        year: 2012,
+        title: "First Prototype",
+        detail: "The team built a basic loan tracking desktop tool used by three small agencies to manage borrower information manually."
+    },
+    {
+        id: 3,
+        year: 2015,
+        title: "Shift Toward Cloud-Based System",
+        detail: "Realizing the future of fintech, the project was rebuilt into a cloud-ready loan management platform."
+    },
+    {
+        id: 4,
+        year: 2018,
+        title: "LoanBee Brand Was Launched",
+        detail: "The name LoanBee was officially introduced with early features like loan application tracking, user roles, and a basic approval workflow."
+    },
+    {
+        id: 5,
+        year: 2020,
+        title: "Web App 1.0 Released",
+        detail: "The first public version launched with real-time loan status updates, email sign-in, secure data storage, and borrower/manager dashboards."
+    },
+    {
+        id: 6,
+        year: 2021,
+        title: "Mobile Optimization Added",
+        detail: "LoanBee became fully mobile-friendly, increasing overall user engagement by 40%."
+    },
+    {
+        id: 7,
+        year: 2022,
+        title: "Major Security Upgrade",
+        detail: "Upgraded with JWT authentication, encrypted loan records, and complete activity logging for enhanced security."
+    },
+    {
+        id: 8,
+        year: 2023,
+        title: "Smart Application Workflow",
+        detail: "Automated verification and streamlined approval systems were introduced to speed up loan processing."
+    },
+    {
+        id: 9,
+        year: 2024,
+        title: "Payments & Analytics Integrated",
+        detail: "Stripe payments, borrower analytics, and manager performance dashboards were implemented for a modern loan ecosystem."
+    },
+    {
+        id: 10,
+        year: 2025,
+        title: "LoanBee Rebuilt (Modern Version)",
+        detail: "A fully redesigned system with Firebase auth, JWT cookies, advanced dashboards, role-based access, payment flow, search/filter, pagination, and secure deployment."
+    }
+];
