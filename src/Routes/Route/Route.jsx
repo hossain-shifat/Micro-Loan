@@ -24,6 +24,7 @@ import MyProfile from "../../Pages/MyProfile/MyProfile";
 import UpdateProfile from "../../Pages/Auth/UpdateProfile/UpdateProfile";
 import Error404 from "../../Components/Errors/Error404";
 import PaymentSuccess from "../../Pages/PaymentSuccess/PaymentSuccess";
+import About from "../../Pages/About/About/About";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
             {
                 path: '/all-loans',
                 Component: AllLoan
+            },
+            {
+                path: '/about',
+                Component: About
             },
             {
                 path: '/loan-details/:id',
