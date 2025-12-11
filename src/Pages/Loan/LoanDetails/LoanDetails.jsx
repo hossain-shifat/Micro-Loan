@@ -60,9 +60,9 @@ const LoanDetails = () => {
                     </div>
                 </div>
                 <div className="md:col-span-2 border border-base-200 p-5 bg-base-200 rounded-2xl shadow-sm">
-                    <div className="flex gap-5">
+                    <div className="flex flex-col md:flex-row gap-5">
                         <div className="">
-                            <img className="w-55 h-70 object-cover rounded-xl" src={loan.photo} alt="" />
+                            <img className="w-full h-70 object-cover rounded-xl" src={loan.photo} alt="" />
                         </div>
                         <div className="flex">
                             <div className="flex flex-col justify-between h-full space-y-5">

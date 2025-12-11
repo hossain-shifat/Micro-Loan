@@ -49,9 +49,9 @@ const AddLoan = () => {
     }
 
     return (
-        <div className="space-y-10">
+        <div className="space-y-3">
             <div>
-                <h1 className="text-2xl font-bold md:text-4xl">Add Loan</h1>
+                <h1 className="text-2xl font-bold md:text-4xl text-center">Add Loan</h1>
             </div>
             <div className="max-w-[500px] w-full mx-auto border border-base-200 rounded-2xl bg-base-200 p-5 sm:p-10">
                 <div>
@@ -61,12 +61,12 @@ const AddLoan = () => {
                     <div className="space-y-3">
                         <div className="grid gap-2 w-full">
                             <label>Loan Title</label>
-                            <input type="text" placeholder="Loan Title" {...register('loanTitle', { required: true })} className="input input-md w-full focus-within:outline-none" />
+                            <input type="text" placeholder="Loan Title" {...register('loanTitle', { required: true })} className="input input-md w-full focus-within:outline-none shadow-sm shadow-gray-400/50" />
                             {errors.loanTitle?.type === 'required' && <p className="text-red-500">Loan title is required!</p>}
                         </div>
                         <fieldset className="grid gap-2 w-full">
                             <label>Loan Category</label>
-                            <select defaultValue="" {...register('loanCategory', { required: true })} className="select w-full focus-within:outline-none">
+                            <select defaultValue="" {...register('loanCategory', { required: true })} className="select w-full focus-within:outline-none shadow-sm shadow-gray-400/50">
                                 <option value="" disabled>Pick a Category</option>
                                 {loanCategories.map((category, index) => (
                                     <option key={index} value={category}>
@@ -79,35 +79,35 @@ const AddLoan = () => {
 
                         <div className="grid gap-2 w-full">
                             <label>Interest Rate</label>
-                            <input type="text" placeholder="Interest Rate" {...register('interestRate', { required: true })} className="input input-md w-full focus-within:outline-none" />
+                            <input type="text" placeholder="Interest Rate" {...register('interestRate', { required: true })} className="input input-md w-full focus-within:outline-none shadow-sm shadow-gray-400/50" />
                             {errors.interestRate?.type === 'required' && <p className="text-red-500">Interest rate is required!</p>}
                         </div>
                         <div className="grid gap-2 w-full">
                             <label>Max Loan Limit</label>
-                            <input type="text" placeholder="Max Loan Limit" {...register('maxLoanLimit', { required: true })} className="input input-md w-full focus-within:outline-none" />
+                            <input type="text" placeholder="Max Loan Limit" {...register('maxLoanLimit', { required: true })} className="input input-md w-full focus-within:outline-none shadow-sm shadow-gray-400/50" />
                             {errors.maxLoanLimit?.type === 'required' && <p className="text-red-500">Max loan limit is required!</p>}
                         </div>
                         <div className="grid gap-2 w-full">
                             <label>Required Documents</label>
-                            <input type="text" placeholder="Required Documents" {...register('requiredDocuments', { required: true })} className="input input-md w-full focus-within:outline-none" />
+                            <input type="text" placeholder="Required Documents" {...register('requiredDocuments', { required: true })} className="input input-md w-full focus-within:outline-none shadow-sm shadow-gray-400/50" />
                             {errors.requiredDocuments?.type === 'required' && <p className="text-red-500">Required documents is required!</p>}
                         </div>
                         <div className="grid gap-2 w-full">
                             <label>EMI Plans</label>
-                            <input type="text" placeholder="EMI Plans" {...register('EMIPlans', { required: true })} className="input input-md w-full focus-within:outline-none" />
+                            <input type="text" placeholder="EMI Plans" {...register('EMIPlans', { required: true })} className="input input-md w-full focus-within:outline-none shadow-sm shadow-gray-400/50" />
                             {errors.EMIPlans?.type === 'required' && <p className="text-red-500">EMI plans is required!</p>}
                         </div>
                         <div className="grid gap-2 w-full">
                             <label className="text-lg">Image</label>
                             <label className="flex w-full border border-base-100 rounded-xl">
-                                <span className="w-full h-12 flex justify-center items-center bg-primary rounded-l-xl font-bold text-white text-center">Choose File</span>
-                                <input type="file" {...register('photo', { required: true })} className="w-full p-3 bg-base-100 rounded-l-0 rounded-r-xl focus-within:outline-none placeholder:text-[#94A3B8] text-base-content text-md" />
+                                <span className="w-full h-12 flex justify-center items-center bg-primary rounded-l-xl font-bold text-white text-center shadow-sm shadow-gray-400/50">Choose File</span>
+                                <input type="file" {...register('photo', { required: true })} className="w-full p-3 bg-base-100 rounded-l-0 rounded-r-xl focus-within:outline-none placeholder:text-[#94A3B8] text-base-content text-md shadow-sm shadow-gray-400/50" />
                             </label>
                             {errors.photo?.type === 'required' && <p className="text-red-500">Image is Required!</p>}
                         </div>
                         <div className="grid gap-2 w-full">
                             <label>Description</label>
-                            <textarea placeholder="Description" {...register('description', { required: true })} className="textarea textarea-md w-full focus-within:outline-none"></textarea>
+                            <textarea placeholder="Description" {...register('description', { required: true })} className="textarea textarea-md w-full focus-within:outline-none shadow-sm shadow-gray-400/50"></textarea>
                             {errors.description?.type === 'required' && <p className="text-red-500"> Description is Required!</p>}
                         </div>
                         <div className="my-6 px-2 flex justify-between gap-2 w-full">
@@ -115,7 +115,7 @@ const AddLoan = () => {
                             <input type="checkbox" {...register("showOnHome")} className="toggle toggle-primary" />
                         </div>
                         <div className="w-full mt-5">
-                            <button className="btn btn-primary w-full">Submit Loan</button>
+                            <button className="btn btn-primary w-full ">Submit Loan</button>
                         </div>
                     </div>
                 </form>

@@ -71,14 +71,11 @@ const PendingApplications = () => {
     }
 
     const handleModal = (application) => {
-        modalRef.current.showModal();
-
-        const matchedLoan = loans.find(loan => loan.loanId === application.loanId);
-
-        setLoan(matchedLoan);
+        const matchedLoan = loans.find(loan => loan.loanId === application.loanId) || {};
+        setLoan(matchedLoan)
+        modalRef.current.showModal()
     };
 
-    console.log(loan)
 
     return (
         <div className="space-y-10">
@@ -120,7 +117,7 @@ const PendingApplications = () => {
                                         </th>
 
                                         <th>
-                                            <div className="space-x-2">
+                                            <div className="flex gap-2">
                                                 <div className="tooltip tooltip-top" data-tip='Approve'>
                                                     <button onClick={() => handleApproved(application)} className="btn btn-accent btn-outline btn-sm btn-square"><SquareCheckBig size={18} /></button>
                                                 </div>

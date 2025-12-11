@@ -8,7 +8,7 @@ import AllLoan from "../../Pages/Loan/AllLoans/AllLoan";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import LoanDetails from "../../Pages/Loan/LoanDetails/LoanDetails";
 import DashbordLayout from "../../Layouts/DashboardLayout/DashboardLayout";
-import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard/Dashboard";
 import UserManagement from "../../Pages/Dashboard/Admin/UserManagement/UserManagement";
 import AddLoan from "../../Pages/Dashboard/Manager/AddLoan/AddLoan";
 import AdminRoute from "../AdminRoute/AdminRoute";

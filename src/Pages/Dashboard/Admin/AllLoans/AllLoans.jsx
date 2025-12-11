@@ -187,12 +187,12 @@ const AllLoans = () => {
                         <div className="p-4">
                             <div className="flex flex-col md:flex-row gap-5 items-center">
                                 <div className="">
-                                    <img className="w-40 h-45 object-cover rounded-xl" src={loanDetails.photo} alt="" />
+                                    <img className="w-60 h-45 object-cover rounded-xl" src={loanDetails.photo} alt="" />
                                 </div>
                                 <div>
                                     <div className="flex flex-col justify-between h-full space-y-5">
                                         <div className="space-y-2">
-                                            <h1 className="font-bold  text-xl md:text-2xl">loanDetails Title: {loanDetails.loanDetailsTitle}</h1>
+                                            <h1 className="font-bold  text-xl md:text-2xl">loan Title: {loanDetails.loanTitle}</h1>
                                             <div className="grid md:grid-cols-3 gap-3 items-center border-b-2 border-primary pb-5 p-2 border-dashed">
                                                 <p>Category: {loanDetails.loanDetailsCategory}</p>
                                                 <p className="md:border-l-2 md:p-2 md:border-r-2">Interest Rate: {loanDetails.interestRate}%</p>

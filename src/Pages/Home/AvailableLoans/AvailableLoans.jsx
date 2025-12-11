@@ -41,11 +41,11 @@ const AvailableLoans = () => {
             <div>
                 <h1 className="font-bold text-2xl md:text-4xl">Available Loan</h1>
             </div>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     combinedLoans.filter(loan => loan.showOnHome).map((loan, index) => (
-                        <FadeIn duration={0.2*index}>
-                            <div key={index} className="flex p-5 gap-5 border border-base-100 bg-base-100 w-full rounded-xl">
+                        <FadeIn key={index} duration={0.2 * index}>
+                            <div className="flex p-5 gap-5 border border-base-100 bg-base-100 w-full rounded-xl shadow-gray-400/50">
                                 <div>
                                     <img className="w-40 h-40 object-cover rounded-xl" src={loan.photo} alt="" />
                                 </div>

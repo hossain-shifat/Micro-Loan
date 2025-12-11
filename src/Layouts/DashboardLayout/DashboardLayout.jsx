@@ -59,7 +59,7 @@ const DashbordLayout = () => {
                         <div className="is-drawer-close:hidden is-drawer-open:p-3 is-drawer-open:border-b border-base-200">
                             <Logo />
                         </div>
-                        <div className="space-y-1 *:py-1 text-[0.9rem]">
+                        <div className="space-y-2 *:shadow *:shadow-base-300 *:border-base-300 *:bg-base-100 *:rounded-lg text-[0.9rem]">
                             <li className="mt-2">
                                 <Link to="/dashboard" onClick={() => setMenu("dashboard")} className={`${menu === "dashboard" ? "activeDashMenu" : ""} is-drawer-close:tooltip is-drawer-close:tooltip-right`}>
                                     <h1 className="flex justify-center items-center"><Home size={18} /></h1>

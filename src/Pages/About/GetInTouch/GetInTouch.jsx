@@ -10,22 +10,22 @@ const GetInTouch = () => {
                 <p className="text-center px-8">Ready to start your digital transformation journey? We'd love to hear from you.</p>
             </div>
             <div className="grid md:grid-cols-3 p-4 gap-3 md:gap-5">
-                <FadeIn>
-                    <div className="p-4 space-y-3 border border-base-100 bg-base-100 rounded-xl shadow-sm text-center">
+                <FadeIn delay={0.3} duration={0.8}>
+                    <div className="p-4 space-y-3 border border-base-100 bg-base-100 rounded-xl shadow-gray-400/50text-center">
                         <Mail size={30} className="max-w-full mx-auto" />
                         <h1>Email</h1>
                         <p>loanbee@gmail.com</p>
                     </div>
                 </FadeIn>
-                <FadeIn>
-                    <div className="p-4 space-y-3 border border-base-100 bg-base-100 rounded-xl shadow-sm text-center">
+                <FadeIn delay={0.4} duration={0.8}>
+                    <div className="p-4 space-y-3 border border-base-100 bg-base-100 rounded-xl shadow-gray-400/50text-center">
                         <Phone size={30} className="max-w-full mx-auto" />
                         <h1>Phone</h1>
                         <p>+8801234895349</p>
                     </div>
                 </FadeIn>
-                <FadeIn>
-                    <div className="p-4 space-y-3 border border-base-100 bg-base-100 rounded-xl shadow-sm text-center">
+                <FadeIn delay={0.5} duration={0.8}>
+                    <div className="p-4 space-y-3 border border-base-100 bg-base-100 rounded-xl shadow-gray-400/50text-center">
                         <MapPin size={30} className="max-w-full mx-auto" />
                         <h1>Office</h1>
                         <p>Dhaka,Bangladesh</p>

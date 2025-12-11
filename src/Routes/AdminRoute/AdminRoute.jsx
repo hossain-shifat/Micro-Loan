@@ -2,6 +2,7 @@ import React from 'react'
 import useAuth from '../../Hooks/UseAuth/useAuth'
 import useRole from '../../Hooks/Role/useRoll'
 import Loading from '../../Components/Loading/Loading'
+import Forbidden from '../../Components/Forbidden/Forbidden'
 
 
 const AdminRoute = ({ children }) => {

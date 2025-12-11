@@ -16,7 +16,7 @@ const MissionAndVision = () => {
                     missionVisionData.map((m, index) => (
                         m.id % 2 !== 0 ?
                             <FadeIn key={index} duration={0.4}>
-                                <div className="h-full p-4 border border-base-300 bg-base-100 rounded-xl shadow-sm space-y-2">
+                                <div className="h-full p-4 border border-base-300 bg-base-100 rounded-xl shadow-gray-400/50space-y-2">
                                     <div className="flex gap-2 items-center font-bold text-xl">
                                         {index === 0 ? <Target size={30} /> : <TrendingUp size={30} />}
                                         <h1>{m.title}</h1>
@@ -29,7 +29,7 @@ const MissionAndVision = () => {
                             </FadeIn>
                             :
                             <FadeIn key={index} duration={0.4}>
-                                <div className="h-full p-4 border border-base-300 bg-base-100 shadow-sm rounded-xl space-y-2">
+                                <div className="h-full p-4 border border-base-300 bg-base-100 shadow-gray-400/50rounded-xl space-y-2">
                                     <div className="flex gap-2 items-center font-bold text-xl">
                                         {index === 1 ? <Eye size={30} /> : <Sparkles size={30} />}
                                         <h1>{m.title}</h1>

@@ -136,8 +136,8 @@ const MyLoans = () => {
                                             <th>${application.loanAmount}</th>
                                             <th>{application.status}</th>
                                             <th>
-                                                <div className="flex gap-2">
-                                                    <Link to={`/loan-details/${matchedLoan._id}`}><button className="btn btn-accent btn-outline">View</button></Link>
+                                                <div className="flex gap-2 flex-col md:flex-row">
+                                                    <Link to={matchedLoan ? `/loan-details/${matchedLoan._id}` : '#'}><button className="btn btn-accent btn-outline">View</button></Link>
                                                     {
                                                         application.paymentStatus === 'paid'
                                                             ?

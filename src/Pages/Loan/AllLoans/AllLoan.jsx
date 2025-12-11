@@ -25,13 +25,13 @@ const AllLoan = () => {
     return (
         <div className="space-y-10">
             <div className="font-bold text-2xl md:text-4xl">
-                <h1>Available Loans ({loans.length}) </h1>
+                <h1>All Loans ({loans.length}) </h1>
             </div>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     loans.map((loan, index) => (
                         <FadeIn key={index} delay={0.2 * index}>
-                            <div key={index} className="flex p-5 gap-5 border border-base-200 bg-base-200 w-full rounded-xl">
+                            <div key={index} className="flex p-5 gap-5 border border-base-200 bg-base-100 w-full rounded-xl shadow-sm shadow-gray-400/50">
                                 <div>
                                     <img className="w-40 h-40 object-cover rounded-xl" src={loan.photo} alt="" />
                                 </div>

@@ -52,27 +52,29 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end flex gap-3">
-                <button onClick={toggleTheme} className="size-10 p-2 flex items-center justify-center bg-base-100 shadow rounded-lg transition hover:scale-105 active:scale-95 cursor-pointer">
+                <button onClick={toggleTheme} className="size-10 -ml-3 md:ml-3 p-2 flex items-center justify-center bg-base-100 shadow rounded-lg transition hover:scale-105 active:scale-95 cursor-pointer">
                     {
                         theme === "light"
                             ? (<MoonIcon className=" text-black dark:text-gray-200" size={23} stroke='black' />)
                             : (<SunIcon className="size-5 text-yellow-400" size={23} />)
                     }
                 </button>
-                {
-                    user ?
-                        <div className="flex gap-4 items-center">
-                            <div className="tooltip tooltip-bottom bg-base-300 rounded-full" data-tip='My Profile'>
-                                <Link to='/dashboard/my-profile'> <img className="w-10.5 h-10.5 rounded-full object-cover" src={user.photoURL} alt="" /></Link>
+                <div>
+                    {
+                        user ?
+                            <div className="flex gap-4 items-center">
+                                <div className="tooltip tooltip-bottom bg-base-300 rounded-full" data-tip='My Profile'>
+                                    <Link to='/dashboard/my-profile'> <img className="w-10.5 h-10.5 rounded-full object-cover" src={user.photoURL} alt="" /></Link>
+                                </div>
+                                <button onClick={handleLogout} className="btn btn-error btn-outline">Logout</button>
                             </div>
-                            <button onClick={handleLogout} className="btn btn-error btn-outline">Logout</button>
-                        </div>
-                        :
-                        <>
-                            <Link to='/login' className="btn btn-primary">Login</Link>
-                            <Link to='/register' className="btn btn-primary">Register</Link>
-                        </>
-                }
+                            :
+                            <div className="flex gap-2">
+                                <Link to='/login' className="btn btn-primary">Login</Link>
+                                <Link to='/register' className="btn btn-primary">Register</Link>
+                            </div>
+                    }
+                </div>
             </div>
         </div>
     )

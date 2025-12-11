@@ -118,7 +118,7 @@
 }
 
 .activeDashMenu{
-    @apply bg-primary font-bold p-2
+    @apply bg-primary font-bold 
 }
 
 .no-scrollbar::-webkit-scrollbar {

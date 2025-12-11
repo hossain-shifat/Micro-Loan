@@ -13,7 +13,7 @@ const AuthLayout = () => {
                         <Outlet />
                     </div>
                 </div>
-                <div className="hidden md:block flex-1 p-10">
+                <div className="hidden lg:block flex-1 p-10">
                     <div className="flex flex-col gap-25 justify-center items-center h-full min-h-screen">
                         <div>
                             <img className="max-w-96" src={assets.auth} alt="" />

@@ -68,9 +68,9 @@ const ApprovedApplications = () => {
     }
 
     const handleModal = (application) => {
-        modalRef.current.showModal();
-        const matchedLoan = loans.find(loan => loan.loanId === application.loanId)
+        const matchedLoan = loans.find(loan => loan.loanId === application.loanId) || {}
         setLoan(matchedLoan);
+        modalRef.current.showModal();
     }
 
     const handleRemove = (id) => {
