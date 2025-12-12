@@ -39,7 +39,7 @@ const DashbordLayout = () => {
                                     <img className="w-10.5 h-10.5 rounded-full object-cover" src={user.photoURL} alt="" />
                                 </div>
                                 <div className="leading-5">
-                                    <h1 className="font-bold">{user.displayName}</h1>
+                                    <h1 className="font-bold capitalize">{user.displayName}</h1>
                                     <p>{role}</p>
                                 </div>
                             </div>
