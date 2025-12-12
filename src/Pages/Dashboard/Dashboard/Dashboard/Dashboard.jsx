@@ -1,9 +1,9 @@
 import React from 'react'
 import useRole from '../../../../Hooks/Role/useRoll'
 import Loading from '../../../../Components/Loading/Loading'
-import AdminDashboard from '../AdminDashboard/AdminDashboard'
 import ManagerDashboard from '../ManagerDashboard/ManagerDashboard'
 import BorrowerDashboard from '../BorrowerDashboard/BorrowerDashboard'
+import AdminDashboard from '../AdminDashboard/AdminDashboard/AdminDashboard'
 
 const Dashboard = () => {
     const { role, roleLoading } = useRole()

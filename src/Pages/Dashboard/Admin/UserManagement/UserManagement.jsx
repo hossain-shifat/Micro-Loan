@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
 import Swal from 'sweetalert2'
-import { Ban, Edit, Handshake, Search, ShieldUser, Trash2, User, UserStar } from 'lucide-react'
+import { Ban, Edit, Search, ShieldUser, Trash2} from 'lucide-react'
 import { useForm } from 'react-hook-form'
 
 const UserManagement = () => {

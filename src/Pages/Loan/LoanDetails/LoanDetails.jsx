@@ -34,7 +34,7 @@ const LoanDetails = () => {
                 <h1 className="font-bold text-2xl md:text-4xl">Loan Details</h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-fr gap-2">
-                <div className="hidden md:block md:col-span-1 md:row-span-2 p-5 border border-base-200 bg-base-200 rounded-2xl shadow-sm">
+                <div className="hidden md:block md:col-span-1 md:row-span-2 p-5 border border-base-200 bg-base-200 rounded-2xl shadow-sm shadow-gray-400/50">
                     <div className="py-5">
                         <h1 className="font-bold text-xl md:text-2xl">Similar Loans</h1>
                     </div>

@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
+import Loading from '../../../../../Components/Loading/Loading'
+import AdminStats from '../AdminStats/AdminStats'
 
 const AdminDashboard = () => {
 
@@ -11,11 +13,18 @@ const AdminDashboard = () => {
         }
     })
 
-    console.log(stats)
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <div>
-            <h1>Admin dahsboard</h1>
+            <div>
+                <h1 className="font-bold text-2xl md:text-2xl">Dahsboard Overview</h1>
+            </div>
+            <div>
+                <AdminStats />
+            </div>
         </div>
     )
 }
