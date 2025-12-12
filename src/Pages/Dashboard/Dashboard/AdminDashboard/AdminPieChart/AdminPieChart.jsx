@@ -30,14 +30,14 @@ const AdminPieChart = () => {
     console.log(pieData)
 
     return (
-        <div className="space-y-5 p-5 md:p-10 border border-base-100 bg-base-300/45 rounded-2xl shadow-sm shadow-base-100 gap-5">
-            <div className="flex flex-col md:flex-row gap-3">
-                <div className="flex-1 grid gap-5 items-center max-w-full mx-auto">
+        <div className="space-y-5 ">
+            <div className="flex flex-col md:flex-row *:p-5 *:md:p-10 *:border *:border-base-100 *:bg-base-300/45 *:rounded-2xl *:shadow-sm *:shadow-base-100 gap-5 *:min-h-[10vh]">
+                <div className="flex-1 grid gap-5 justify-center items-center max-w-dvw w-full mx-auto">
                     <div>
                         <h1 className="font-bold text-2xl">User Role Statistics</h1>
                     </div>
-                    <PieChart style={{ width: "100%", maxWidth: "950px", height: "450px" }}>
-                        <Pie data={pieData} dataKey="value" nameKey="name" outerRadius='80%' fill="#8884d8" label isAnimationActive={true} >
+                    <PieChart style={{ width: "100%", maxWidth: "900px", height: "550px" }}>
+                        <Pie data={pieData} dataKey="value" nameKey="name" outerRadius='100%' fill="#8884d8" label isAnimationActive={true} >
                             {pieData.map((entry, index) => (
                                 <Cell key={index} fill={COLORS[index % COLORS.length]} />
                             ))}
@@ -46,10 +46,10 @@ const AdminPieChart = () => {
                         <Legend />
                     </PieChart>
                 </div>
-                <div className="divider divider-horizontal"></div>
+
                 <div className="flex-1 grid gap-5">
                     <div>
-                        <h1 className="font-bold text-2xl">Recent Users</h1>
+                        <h1 className="font-bold text-2xl text-center">Recent Users</h1>
                     </div>
                     <div className="overflow-x-auto no-scrollbar">
                         <table className="table">
