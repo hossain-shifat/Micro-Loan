@@ -1,0 +1,83 @@
+import React from 'react'
+import useAxiosSecure from '../../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
+import { useQuery } from '@tanstack/react-query'
+import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import useAuth from '../../../../../Hooks/UseAuth/useAuth';
+import Loading from '../../../../../Components/Loading/Loading';
+
+const AdminPieChart = () => {
+
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+    const axiosSecure = useAxiosSecure()
+    const { data: adminStats = [], isLoading } = useQuery({
+        queryKey: ['admin-stats'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/admin/dashboard-stats`)
+            return res.data
+        }
+    })
+
+    if (isLoading) {
+        return <Loading />
+    }
+
+    const pieData = adminStats.usersByRole?.map(user => ({
+        name: user.role,
+        value: user.count
+    })) || []
+
+    console.log(pieData)
+
+    return (
+        <div className="space-y-5 p-5 md:p-10 border border-base-100 bg-base-300/45 rounded-2xl shadow-sm shadow-base-100 gap-5">
+            <div className="flex flex-col md:flex-row gap-3">
+                <div className="flex-1 grid gap-5 items-center max-w-full mx-auto">
+                    <div>
+                        <h1 className="font-bold text-2xl">User Role Statistics</h1>
+                    </div>
+                    <PieChart style={{ width: "100%", maxWidth: "950px", height: "450px" }}>
+                        <Pie data={pieData} dataKey="value" nameKey="name" outerRadius='80%' fill="#8884d8" label isAnimationActive={true} >
+                            {pieData.map((entry, index) => (
+                                <Cell key={index} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                        </Pie>
+                        <Tooltip />
+                        <Legend />
+                    </PieChart>
+                </div>
+                <div className="divider divider-horizontal"></div>
+                <div className="flex-1 grid gap-5">
+                    <div>
+                        <h1 className="font-bold text-2xl">Recent Users</h1>
+                    </div>
+                    <div className="overflow-x-auto no-scrollbar">
+                        <table className="table">
+                            {/* head */}
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    adminStats.recentUsers?.map(recentUser => (
+                                        <tr key={recentUser._id}>
+                                            <td>{recentUser.displayName}</td>
+                                            <td>{recentUser.email}</td>
+                                            <td>{recentUser.role}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default AdminPieChart

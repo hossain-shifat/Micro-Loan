@@ -35,7 +35,7 @@ const ManagerStats = () => {
 
 
     return (
-        <div className="grid grid-cols-3 gap-3 items-stretch content-stretch">
+        <div className="grid md:grid-cols-3 gap-3 items-stretch content-stretch p-5 border border-base-100 bg-base-300/45 rounded-2xl shadow-sm shadow-base-100">
             <FadeIn className="h-full" duration={1} delay={0.5}>
                 <div className="flex flex-col justify-center items-center h-full text-center p-2 md:p-5 border border-base-100 bg-base-100 rounded-xl shadow-sm hover:bg-primary hover:text-white hover:border-primary">
                     <h1 className="font-bold md:text-xl">My Loans</h1>
