@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
-import Loading from '../../../../../Components/Loading/Loading'
-import AdminStats from '../AdminStats/AdminStats'
+import ManagerStats from '../ManagerStats/ManagerStats'
 import FadeIn from '../../../../../Components/Animations/FadeIn/FadeIn'
 
-const AdminDashboard = () => {
+const ManagerDashboard = () => {
     return (
         <div className="space-y-10">
             <div>
@@ -12,11 +11,11 @@ const AdminDashboard = () => {
             </div>
             <div>
                 <FadeIn>
-                    <AdminStats />
+                    <ManagerStats />
                 </FadeIn>
             </div>
         </div>
     )
 }
 
-export default AdminDashboard
+export default ManagerDashboard
