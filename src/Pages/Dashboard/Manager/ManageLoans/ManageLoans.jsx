@@ -3,7 +3,7 @@ import useAuth from '../../../../Hooks/UseAuth/useAuth'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
 import Loading from '../../../../Components/Loading/Loading'
-import { Edit, Trash2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Edit, Trash2 } from 'lucide-react'
 import Swal from 'sweetalert2'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
@@ -19,6 +19,8 @@ const ManageLoans = () => {
     const [updateLoan, setUpdateLoan] = useState([])
     const axiosSecure = useAxiosSecure()
     const { user } = useAuth()
+    const [currentPage, setCurrentPage] = useState(1)
+    const itemsPerPage = 6
 
 
     const { isLoading, data: loans = [], refetch } = useQuery({
@@ -95,6 +97,13 @@ const ManageLoans = () => {
             })
     }
 
+    const totalPages = Math.ceil(loans.length / itemsPerPage)
+
+    const startIndex = (currentPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+
+    const paginatedApplications = loans.slice(startIndex, endIndex)
+
 
     if (isLoading) {
         return <Loading />
@@ -106,7 +115,7 @@ const ManageLoans = () => {
                 <h1 className="font-bold text-2xl md:text-4xl">Manage Loans</h1>
             </div>
             <div>
-                <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+                <div className="overflow-x-auto rounded-box border border-base-content/5 min-h-[70vh] h-full bg-base-100">
                     <table className="table">
                         <thead>
                             <tr className="text-center">
@@ -120,9 +129,9 @@ const ManageLoans = () => {
                         </thead>
                         <tbody>
                             {
-                                loans.map((loan, index) => (
+                                paginatedApplications.map((loan, index) => (
                                     <tr key={index} className="text-center">
-                                        <th>{index + 1}</th>
+                                        <th>{startIndex + index + 1}</th>
                                         <td>
                                             {
                                                 <img className="w-10 h-10 object-cover mx-auto rounded-sm" src={loan.photo} alt="" />
@@ -140,6 +149,30 @@ const ManageLoans = () => {
                             }
                         </tbody>
                     </table>
+                </div>
+                <div className="flex justify-center items-center gap-10 mt-5">
+                    <button className="btn btn-primary btn-sm btn-square rounded-full" disabled={currentPage === 1} onClick={() => setCurrentPage(prev => prev - 1)} >
+                        <ArrowLeft size={18} />
+                    </button>
+
+                    <div className="flex gap-2">
+                        {
+                            [...Array(totalPages).keys()].map(number => {
+                                const page = number + 1
+                                const isActive = currentPage === page
+
+                                return (
+                                    <button key={page} onClick={() => setCurrentPage(page)} className={`w-5 h-5 flex items-center justify-center text-sm text-center transition rounded-full ${isActive ? 'bg-primary text-white' : 'border border-base-300 hover:bg-base-200'} `}>
+                                        {page}
+                                    </button>
+                                )
+                            })
+                        }
+                    </div>
+
+                    <button className="btn btn-primary btn-sm btn-square rounded-full" disabled={currentPage === totalPages} onClick={() => setCurrentPage(prev => prev + 1)} >
+                        <ArrowRight size={18} />
+                    </button>
                 </div>
                 {/* update modal */}
                 <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
