@@ -5,6 +5,7 @@ import AdminStats from '../AdminStats/AdminStats'
 import FadeIn from '../../../../../Components/Animations/FadeIn/FadeIn'
 import AdminLineChart from '../AdminLineChart/AdminLineChart'
 import AdminPieChart from '../AdminPieChart/AdminPieChart'
+import RecentApplication from '../RecentApplications/RecentApplication'
 
 const AdminDashboard = () => {
     return (
@@ -18,6 +19,9 @@ const AdminDashboard = () => {
                 </FadeIn>
                 <FadeIn>
                     <AdminLineChart />
+                </FadeIn>
+                <FadeIn>
+                    <RecentApplication />
                 </FadeIn>
                 <FadeIn>
                     <AdminPieChart />

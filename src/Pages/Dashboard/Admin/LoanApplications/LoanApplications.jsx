@@ -46,7 +46,6 @@ const LoanApplications = () => {
                         <li><a onClick={() => setStatusFilter('rejected')}>Rejected</a></li>
                     </ul>
                 </div>
-
                 <div className="overflow-x-auto no-scrollbar rounded-box border border-base-content/5 bg-base-100">
                     <table className="table">
                         <thead>

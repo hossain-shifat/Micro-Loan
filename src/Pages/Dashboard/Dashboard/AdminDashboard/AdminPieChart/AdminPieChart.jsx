@@ -28,12 +28,11 @@ const AdminPieChart = () => {
         value: user.count
     })) || []
 
-    console.log(pieData)
 
     return (
         <div className="space-y-5 ">
-            <div className="flex flex-col md:flex-row *:p-5 *:md:p-10 *:border *:border-base-100 *:bg-base-300/45 *:rounded-2xl *:shadow-sm *:shadow-base-100 gap-5 *:min-h-[10vh]">
-                <FadeIn>
+            <div className="flex flex-col md:flex-row *:p-5 *:md:p-10 *:border *:border-base-100 *:bg-base-300/45 *:rounded-2xl *:shadow-sm *:shadow-base-100 gap-5">
+                <FadeIn className="flex-1">
                     <div className="flex-1 grid gap-5 justify-center items-center max-w-dvw w-full mx-auto">
                         <div>
                             <h1 className="font-bold text-2xl">User Role Statistics</h1>
@@ -53,14 +52,13 @@ const AdminPieChart = () => {
                         </div>
                     </div>
                 </FadeIn>
-                <FadeIn>
-                    <div className="flex-1 grid gap-5">
+                <FadeIn className="flex-1">
+                    <div className="grid gap-5">
                         <div>
                             <h1 className="font-bold text-2xl text-center">Recent Users</h1>
                         </div>
                         <div className="overflow-x-auto no-scrollbar">
                             <table className="table">
-                                {/* head */}
                                 <thead>
                                     <tr>
                                         <th>Name</th>
