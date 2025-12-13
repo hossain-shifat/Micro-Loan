@@ -14,10 +14,9 @@ const AdminLineChart = () => {
         }
     })
 
-    const chartData = adminStats?.monthlyTrends?.map((item) => ({
-        name: `${item.month}-${item.year}`,
-        count: item.count,
-        totalAmount: item.totalAmount,
+    const chartData = adminStats?.recentApplications?.map((loan) => ({
+        name: loan.loanTitle,
+        value: Number(loan.loanAmount)
     })) || []
 
     return (
@@ -25,20 +24,23 @@ const AdminLineChart = () => {
             <div>
                 <h1 className="font-bold text-2xl">Overall Statistics</h1>
             </div>
-            <div style={{ width: "100%" }} className="flex flex-col md:flex-row justify-center gap-5">
-                <LineChart style={{ width: "100%", maxWidth: "900px", maxHeight: "30vh", aspectRatio: 1.518, }} data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+            <div>
+                <LineChart
+                    style={{ width: '100%', maxWidth: '100%', maxHeight: '50vh', aspectRatio: 1.618 }}
+                    responsive
+                    data={chartData}
+                    margin={{
+                        top: 10,
+                        right: 30,
+                        left: 0,
+                        bottom: 0,
+                    }}
+                >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Line type="monotone" dataKey="count" stroke="#8884d8" fill="#8884d8" />
-                </LineChart>
-                <LineChart style={{ width: "100%", maxWidth: "700px", maxHeight: "30vh", aspectRatio: 1.618, }} data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }} >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Line connectNulls type="monotone" dataKey="totalAmount" stroke="#82ca9d" fill="#82ca9d" />
+                    <Line connectNulls type="monotone" dataKey="value" stroke="#14B8A6" fill="#14B8A6" />
                 </LineChart>
             </div>
         </div>
