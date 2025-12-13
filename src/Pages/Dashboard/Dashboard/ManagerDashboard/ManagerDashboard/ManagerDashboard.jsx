@@ -4,6 +4,7 @@ import ManagerStats from '../ManagerStats/ManagerStats'
 import FadeIn from '../../../../../Components/Animations/FadeIn/FadeIn'
 import ManagerPieChart from '../ManagerPieChart/ManagerPieChart'
 import ManagerRecentApplication from '../ManagerRecentApplications/ManagerRecentApplications'
+import ManagerAreaChart from '../ManagerAreaChart/ManagerAreaChart'
 
 const ManagerDashboard = () => {
     return (
@@ -14,6 +15,9 @@ const ManagerDashboard = () => {
             <div className="space-y-10">
                 <FadeIn>
                     <ManagerStats />
+                </FadeIn>
+                <FadeIn>
+                    <ManagerAreaChart />
                 </FadeIn>
                 <FadeIn>
                     <ManagerRecentApplication />

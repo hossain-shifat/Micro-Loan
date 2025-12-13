@@ -38,7 +38,7 @@ const RecentApplication = () => {
                 <h1 className="font-bold text-2xl">Recent Application</h1>
             </div>
             <div>
-                <div className="overflow-x-auto no-scrollbar rounded-box border border-base-content/5 bg-base-100">
+                <div className="overflow-x-auto no-scrollbar rounded-box border border-base-content/5 min-h-[50vh] h-full bg-base-100">
                     <table className="table table-sm">
                         <thead>
                             <tr className="text-center">

@@ -3,7 +3,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 import useAxiosSecure from '../../../../../Hooks/Axios/AxiosSecure/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 
-const AdminAreaChart = () => {
+const ManagerAreaChart = () => {
 
     const axiosSecure = useAxiosSecure()
     const { data: managerStats = [], isLoading } = useQuery({
@@ -14,8 +14,8 @@ const AdminAreaChart = () => {
         }
     })
 
-    const chartData = managerStats.topLoans?.map(loan => ({
-        name: loan.loanTitle,
+    const chartData = managerStats.topLoans?.map(loan =>({
+        name:loan.loanTitle,
         value: Number(loan.totalAmount)
     }))
 
@@ -41,4 +41,4 @@ const AdminAreaChart = () => {
     )
 }
 
-export default AdminAreaChart
+export default ManagerAreaChart
