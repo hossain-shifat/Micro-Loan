@@ -6,7 +6,7 @@ const GetInTouch = () => {
     return (
         <div className="space-y-10">
             <div className="space-y-3">
-                <h1 className="text-center font-bold text-2xl md:text-4xl">Get In Touch</h1>
+                <h1 className="text-center font-bold text-2xl md:text-4xl p-4">Get In Touch</h1>
                 <p className="text-center px-8">Ready to start your digital transformation journey? We'd love to hear from you.</p>
             </div>
             <div className="grid md:grid-cols-3 p-4 gap-3 md:gap-5">

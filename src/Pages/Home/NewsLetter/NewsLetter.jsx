@@ -17,7 +17,7 @@ const NewsLetter = () => {
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl text-center">Newsletter</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4 text-center">Newsletter</h1>
             </div>
             <div className="flex flex-col md:flex-row md:justify-between items-center">
                 <div className="flex-1 max-w-[550px]">

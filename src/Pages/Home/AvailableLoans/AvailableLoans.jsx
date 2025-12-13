@@ -39,7 +39,7 @@ const AvailableLoans = () => {
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl">Available Loan</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4">Available Loan</h1>
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {

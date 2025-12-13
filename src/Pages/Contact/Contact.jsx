@@ -6,18 +6,18 @@ import { toast } from 'react-toastify'
 const Contact = () => {
 
     const handleSubmit = (e) => {
-            e.preventDefault()
-            if (!e.target.name.value || !e.target.email.value) {
-                return
-            }
-            toast.success('We will contact you soon')
-            e.target.reset()
+        e.preventDefault()
+        if (!e.target.name.value || !e.target.email.value) {
+            return
         }
+        toast.success('We will contact you soon')
+        e.target.reset()
+    }
 
     return (
         <div className="my-10 space-y-10 border border-base-300 bg-base-200 py-5 rounded-2xl shadow-sm">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl text-center">Contact Us</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4 text-center">Contact Us</h1>
                 <p className="text-center">Any question or remarks? Just write us a message!</p>
             </div>
             <div className="p-4 grid md:grid-cols-2 gap-4">

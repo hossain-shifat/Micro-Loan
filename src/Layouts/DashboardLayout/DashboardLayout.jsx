@@ -46,7 +46,7 @@ const DashbordLayout = () => {
                         </Link>
                     </nav>
                 </nav>
-                <div className="m-3 md:m-5 p-5 md:p-10 rounded-2xl min-h-screen bg-base-200 border-base-200 inset-shadow-2xs shadow-sm">
+                <div className="m-3 md:m-5 p-2 md:p-10 rounded-2xl min-h-screen bg-base-200 border-base-200 inset-shadow-2xs shadow-sm">
                     <Outlet />
                 </div>
             </div>

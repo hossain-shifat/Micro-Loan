@@ -96,7 +96,7 @@ const MyLoans = () => {
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl">My Loans ({applications.length})</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4">My Loans ({applications.length})</h1>
             </div>
             <div>
                 <div className="overflow-x-auto no-scrollbar rounded-box border border-base-content/5 bg-base-100">

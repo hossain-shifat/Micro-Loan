@@ -11,7 +11,7 @@ const AdminDashboard = () => {
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-2xl">Dahsboard Overview</h1>
+                <h1 className="font-bold text-2xl md:text-2xl p-4">Dahsboard Overview</h1>
             </div>
             <div className="space-y-10">
                 <FadeIn>

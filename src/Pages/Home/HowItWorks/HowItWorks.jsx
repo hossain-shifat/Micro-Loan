@@ -7,7 +7,7 @@ const HowItWorks = () => {
     return (
         <div className="py-5 space-y-5 md:space-y-15">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl text-center">How it Works</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4 text-center">How it Works</h1>
             </div>
             <div className="space-y-4">
                 {

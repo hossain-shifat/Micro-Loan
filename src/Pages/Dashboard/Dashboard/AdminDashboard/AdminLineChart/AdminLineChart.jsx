@@ -1,44 +1,48 @@
+import { useQuery } from '@tanstack/react-query'
 import React from 'react'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import useAxiosSecure from '../../../../../Hooks/Axios/AxiosSecure/useAxiosSecure';
-import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
-const AdminAreaChart = () => {
+const AdminLineChart = () => {
 
     const axiosSecure = useAxiosSecure()
-    const { data: managerStats = [], isLoading } = useQuery({
-        queryKey: ['manager-stats'],
+    const { data: adminStats = [] } = useQuery({
+        queryKey: ['admin-stats'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/manager/dashboard-stats`)
+            const res = await axiosSecure.get(`/admin/dashboard-stats`)
             return res.data
         }
     })
 
-    const chartData = managerStats.topLoans?.map(loan => ({
-        name: loan.loanTitle,
-        value: Number(loan.totalAmount)
-    }))
+    const chartData = adminStats?.monthlyTrends?.map((item) => ({
+        name: `${item.month}-${item.year}`,
+        count: item.count,
+        totalAmount: item.totalAmount,
+    })) || []
 
     return (
         <div className="space-y-5 p-5 border border-base-100 bg-base-300/45 rounded-2xl shadow-sm shadow-base-100 gap-5">
             <div>
                 <h1 className="font-bold text-2xl">Overall Statistics</h1>
             </div>
-            <div>
-                <AreaChart
-                    style={{ width: '100%', maxWidth: '100%', maxHeight: '50vh', aspectRatio: 1.618 }}
-                    responsive
-                    data={chartData}
-                    margin={{ top: 20, right: 0, left: 0, bottom: 0, }}>
+            <div style={{ width: "100%" }} className="flex flex-col md:flex-row justify-center gap-5">
+                <LineChart style={{ width: "100%", maxWidth: "900px", maxHeight: "30vh", aspectRatio: 1.518, }} data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
-                    <YAxis width="auto" />
+                    <YAxis />
                     <Tooltip />
-                    <Area type="monotone" dataKey="value" stroke="#14B8A6" fill="#14B8A6" />
-                </AreaChart>
+                    <Line type="monotone" dataKey="count" stroke="#8884d8" fill="#8884d8" />
+                </LineChart>
+                <LineChart style={{ width: "100%", maxWidth: "700px", maxHeight: "30vh", aspectRatio: 1.618, }} data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }} >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Line connectNulls type="monotone" dataKey="totalAmount" stroke="#82ca9d" fill="#82ca9d" />
+                </LineChart>
             </div>
         </div>
     )
 }
 
-export default AdminAreaChart
+export default AdminLineChart

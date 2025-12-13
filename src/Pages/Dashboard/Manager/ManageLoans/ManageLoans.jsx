@@ -112,7 +112,7 @@ const ManageLoans = () => {
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl">Manage Loans</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4">Manage Loans</h1>
             </div>
             <div>
                 <div className="overflow-x-auto rounded-box border border-base-content/5 min-h-[50vh] md:min-h-[70vh] h-full bg-base-100">

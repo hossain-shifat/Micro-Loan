@@ -14,7 +14,7 @@ const FAQ = () => {
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl text-center">FAQ</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4 text-center">FAQ</h1>
             </div>
             <div className="space-y-1">
                 {

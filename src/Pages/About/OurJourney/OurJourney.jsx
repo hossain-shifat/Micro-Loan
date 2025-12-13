@@ -6,7 +6,7 @@ const OurJourney = () => {
     return (
         <div className="space-y-10">
             <div className="space-y-3">
-                <h1 className="font-bold text-2xl md:text-4xl text-center">Our Journey</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4 text-center">Our Journey</h1>
                 <p className="text-center px-4">From a Small Startup to a Trusted Technology Partner</p>
             </div>
             <div className="max-w-[900px] mx-auto p-4">
@@ -24,7 +24,7 @@ const OurJourney = () => {
                                     <div className="text-lg font-black">{timeLine.title}</div>
                                     <p>{timeLine.detail}</p>
                                 </FadeIn>
-                                <hr className="bg-primary"/>
+                                <hr className="bg-primary" />
                             </li>
                         ))
                     }

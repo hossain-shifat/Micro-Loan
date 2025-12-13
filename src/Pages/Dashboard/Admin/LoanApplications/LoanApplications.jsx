@@ -32,7 +32,7 @@ const LoanApplications = () => {
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl">Loan Applications ({applications.length})</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4">Loan Applications ({applications.length})</h1>
             </div>
             <div className="space-y-2">
                 <div className="dropdown dropdown-bottom flex justify-end">

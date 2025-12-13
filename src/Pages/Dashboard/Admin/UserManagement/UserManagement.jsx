@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import useAxiosSecure from '../../../../Hooks/Axios/AxiosSecure/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query'
 import Swal from 'sweetalert2'
-import { Ban, Edit, Search, ShieldUser, Trash2} from 'lucide-react'
+import { Ban, Edit, Search, ShieldUser, Trash2 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 
 const UserManagement = () => {
@@ -135,7 +135,7 @@ const UserManagement = () => {
     return (
         <div className="space-y-10">
             <div>
-                <h1 className="font-bold text-2xl md:text-4xl">All Users</h1>
+                <h1 className="font-bold text-2xl md:text-4xl p-4">All Users</h1>
             </div>
             <div className="space-y-2">
                 <div>

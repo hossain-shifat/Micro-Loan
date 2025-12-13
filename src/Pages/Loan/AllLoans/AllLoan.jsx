@@ -24,7 +24,7 @@ const AllLoan = () => {
 
     return (
         <div className="space-y-10">
-            <div className="font-bold text-2xl md:text-4xl">
+            <div className="font-bold text-2xl md:text-4xl p-4">
                 <h1>All Loans ({loans.length}) </h1>
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
