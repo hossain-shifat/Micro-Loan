@@ -10,7 +10,7 @@ import { Link } from 'react-router';
 
 const ManagerPieChart = () => {
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#845EC2', '#D65DB1', '#FF6F91', '#4D96FF', '#6BCF63', '#F9A826'];
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#845EC2', '#D65DB1', '#FF6F91', '#4D96FF', '#6BCF63', '#F9A826', '#1F77B4', '#2CA02C', '#FF7F0E', '#D62728', '#9467BD', '#8C564B', '#E377C2', '#7F7F7F', '#17BECF', '#BCBD22', '#3A86FF', '#8338EC', '#FB5607', '#FF006E', '#00B4D8'];
 
     const axiosSecure = useAxiosSecure()
     const { data: managerStats = [], isLoading } = useQuery({
@@ -33,13 +33,13 @@ const ManagerPieChart = () => {
 
     return (
         <div className="space-y-5">
-            <div className="flex flex-col md:flex-row *:p-5 *:md:p-10 *:border *:border-base-100 *:bg-base-300/45 *:rounded-2xl *:shadow-sm *:shadow-base-100 gap-5">
+            <div className="flex flex-col md:flex-row *:p-5 *:border *:border-base-100 *:bg-base-300/45 *:rounded-2xl *:shadow-sm *:shadow-base-100 gap-5">
                 <FadeIn className="flex-1">
-                    <div className="flex-1 grid gap-5 justify-center items-center max-w-dvw w-full mx-auto">
+                    <div className="flex-1 grid gap-3 justify-center items-center max-w-dvw w-full mx-auto">
                         <div>
-                            <h1 className="font-bold text-2xl">User Role Statistics</h1>
+                            <h1 className="font-bold text-2xl text-center">User Role Statistics</h1>
                         </div>
-                        <div style={{ width: '100%', maxWidth: 550, height: 550 }}>
+                        <div style={{ width: '100%', maxWidth: 550, height: 350 }}>
                             <ResponsiveContainer >
                                 <PieChart responsive>
                                     <Pie data={pieData} dataKey="value" nameKey="name" outerRadius={100} fill="#8884d8" label isAnimationActive={true} >
@@ -48,13 +48,22 @@ const ManagerPieChart = () => {
                                         ))}
                                     </Pie>
                                     <Tooltip />
-                                    <Legend layout="horizontal" verticalAlign="bottom" align="center" wrapperStyle={{ marginTop: 10 }} />
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {
+                                pieData.map((item, index) => (
+                                    <div key={index} className="flex items-center gap-2 text-sm">
+                                        <span className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[index % COLORS.length] }} />
+                                        <span className="max-w-[120px] truncate">{item.name}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
                     </div>
                 </FadeIn>
-                <FadeIn className="flex-1">
+                <FadeIn className="flex-1" delay={0.8}>
                     <div className="grid gap-5">
                         <div>
                             <h1 className="font-bold text-2xl text-center">Recent Loans</h1>
