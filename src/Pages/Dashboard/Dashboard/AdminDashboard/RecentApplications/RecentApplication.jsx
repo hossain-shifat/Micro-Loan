@@ -80,23 +80,25 @@ const RecentApplication = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className="flex justify-center items-center gap-3 mt-5">
+                <div className="flex justify-center items-center gap-10 mt-5">
                     <button className="btn btn-primary btn-sm btn-square rounded-full" disabled={currentPage === 1} onClick={() => setCurrentPage(prev => prev - 1)} >
                         <ArrowLeft size={18} />
                     </button>
 
-                    {
-                        [...Array(totalPages).keys()].map(number => {
-                            const page = number + 1
-                            const isActive = currentPage === page
+                    <div className="flex gap-2">
+                        {
+                            [...Array(totalPages).keys()].map(number => {
+                                const page = number + 1
+                                const isActive = currentPage === page
 
-                            return (
-                                <button key={page} onClick={() => setCurrentPage(page)} className={`w-5 h-5 flex items-center justify-center text-sm text-center transition rounded-full ${isActive ? 'bg-primary text-white' : 'border border-base-300 hover:bg-base-200'} `}>
-                                    {page}
-                                </button>
-                            )
-                        })
-                    }
+                                return (
+                                    <button key={page} onClick={() => setCurrentPage(page)} className={`w-5 h-5 flex items-center justify-center text-sm text-center transition rounded-full ${isActive ? 'bg-primary text-white' : 'border border-base-300 hover:bg-base-200'} `}>
+                                        {page}
+                                    </button>
+                                )
+                            })
+                        }
+                    </div>
 
                     <button className="btn btn-primary btn-sm btn-square rounded-full" disabled={currentPage === totalPages} onClick={() => setCurrentPage(prev => prev + 1)} >
                         <ArrowRight size={18} />
