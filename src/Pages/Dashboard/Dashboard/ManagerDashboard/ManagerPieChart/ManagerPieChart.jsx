@@ -21,27 +21,27 @@ const ManagerPieChart = () => {
         }
     })
 
-    if (isLoading) {
-        return <Loading />
-    }
-
     const pieData = managerStats.topLoans?.map(loan => ({
         name: loan.loanTitle,
         value: Number(loan.totalAmount)
     })) || []
 
 
+    if (isLoading) {
+        return <Loading />
+    }
+
+
     return (
         <div className="space-y-5">
             <div className="flex flex-col md:flex-row *:p-5 *:border *:border-base-100 *:bg-base-300/45 *:rounded-2xl *:shadow-sm *:shadow-base-100 gap-5">
-                <FadeIn className="flex-1">
                     <div className="flex-1 grid gap-3 justify-center items-center max-w-dvw w-full mx-auto">
                         <div>
-                            <h1 className="font-bold text-2xl text-center">User Role Statistics</h1>
+                            <h1 className="font-bold text-2xl text-center">Loan Statistics</h1>
                         </div>
-                        <div style={{ width: '100%', maxWidth: 550, height: 350 }}>
+                        <div className="w-full h-full min-h-[500px]">
                             <ResponsiveContainer >
-                                <PieChart responsive>
+                                <PieChart>
                                     <Pie data={pieData} dataKey="value" nameKey="name" outerRadius={100} fill="#8884d8" label isAnimationActive={true} >
                                         {pieData.map((entry, index) => (
                                             <Cell key={index} fill={COLORS[index % COLORS.length]} />
@@ -62,16 +62,14 @@ const ManagerPieChart = () => {
                             }
                         </div>
                     </div>
-                </FadeIn>
-                <FadeIn className="flex-1" delay={0.8}>
-                    <div className="grid gap-5">
+                    <div className="flex-1 grid gap-5">
                         <div>
                             <h1 className="font-bold text-2xl text-center">Recent Loans</h1>
                         </div>
                         <div className="overflow-x-auto no-scrollbar">
                             <table className="table">
                                 <thead>
-                                    <tr>
+                                    <tr className="text-center">
                                         <th>Name</th>
                                         <th>Amount</th>
                                         <th>Show On Home</th>
@@ -81,7 +79,7 @@ const ManagerPieChart = () => {
                                 <tbody>
                                     {
                                         managerStats.recentLoans?.map(loan => (
-                                            <tr key={loan.loanId}>
+                                            <tr key={loan.loanId} className="text-center">
                                                 <td>{loan.loanTitle}</td>
                                                 <td>{loan.maxLoanLimit}</td>
                                                 <td>
@@ -99,7 +97,6 @@ const ManagerPieChart = () => {
                             </table>
                         </div>
                     </div>
-                </FadeIn>
             </div>
         </div>
     )

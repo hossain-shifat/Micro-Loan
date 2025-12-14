@@ -14,8 +14,10 @@ const ManagerAreaChart = () => {
         }
     })
 
-    const chartData = managerStats.topLoans?.map(loan =>({
-        name:loan.loanTitle,
+    console.log(managerStats)
+
+    const chartData = managerStats?.topLoans?.map(loan => ({
+        name: loan.loanTitle,
         value: Number(loan.totalAmount)
     }))
 
@@ -28,7 +30,7 @@ const ManagerAreaChart = () => {
                 <AreaChart style={{ width: '100%', maxWidth: '100%', maxHeight: '50vh', aspectRatio: 1.618 }} responsive data={chartData} margin={{ top: 20, right: 0, left: 0, bottom: 0, }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
-                    <YAxis width="auto"/>
+                    <YAxis width="auto" />
                     <Tooltip />
                     <Area type="monotone" dataKey="value" stroke="#14B8A6" fill="#14B8A6" />
                 </AreaChart>

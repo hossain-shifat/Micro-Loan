@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "micro-loan-1580a",
+    "prod": "micro-loan-1580a"
+  },
+  "targets": {},
+  "etags": {}
+}
