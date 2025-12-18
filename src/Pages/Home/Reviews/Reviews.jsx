@@ -17,6 +17,8 @@ const Reviews = () => {
             .then(data => setReviews(data))
     }, [])
 
+    const shouldLoop = reviews.length >= 4
+
     return (
         <div className="space-y-10">
             <div>
@@ -37,7 +39,7 @@ const Reviews = () => {
                         coverflowEffect: { rotate: 30, depth: 200 }
                     },
                 }}
-                    loop={true}
+                    loop={shouldLoop}
                     coverflowEffect={{
                         rotate: 30, stretch: 0, depth: 200, modifier: 6, slideShadows: true,
                     }}
