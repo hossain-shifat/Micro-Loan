@@ -14,8 +14,6 @@ const ManagerAreaChart = () => {
         }
     })
 
-    console.log(managerStats)
-
     const chartData = managerStats?.topLoans?.map(loan => ({
         name: loan.loanTitle,
         value: Number(loan.totalAmount)

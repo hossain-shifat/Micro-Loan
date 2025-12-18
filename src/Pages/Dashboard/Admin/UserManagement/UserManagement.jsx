@@ -63,7 +63,6 @@ const UserManagement = () => {
 
 
     const handleRole = (data) => {
-        console.log(data)
         const status = data.role
         updateUserAction(selectedUser, status)
     }

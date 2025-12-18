@@ -27,8 +27,6 @@ const LoanApplications = () => {
         setLoan(application)
     }
 
-    console.log(loan)
-
     return (
         <div className="space-y-10">
             <div>

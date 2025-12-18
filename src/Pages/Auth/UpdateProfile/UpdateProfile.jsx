@@ -30,7 +30,7 @@ const UpdateProfile = () => {
                 axiosSecure.patch('/users/profile', userInfo)
                     .then(res => {
                         if (res.data.insertedId) {
-                            console.log('user created in the database')
+                            // console.log('user created in the database')
                         }
                     })
 
@@ -41,7 +41,6 @@ const UpdateProfile = () => {
                 }
                 updateUserProfile(userProfile)
                     .then(res => {
-                        console.log(res)
                         toast.success('Profile Updated!')
                         navigate(location.state?.from?.pathname || "/")
                     })

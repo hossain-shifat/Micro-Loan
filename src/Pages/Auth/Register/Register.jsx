@@ -27,7 +27,6 @@ const Register = () => {
 
         registerUser(data.email, data.password)
             .then((result) => {
-                console.log(result.user)
 
                 const formData = new FormData()
                 formData.append('image', profileImg)

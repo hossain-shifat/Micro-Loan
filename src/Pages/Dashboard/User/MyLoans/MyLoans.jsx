@@ -87,8 +87,6 @@ const MyLoans = () => {
         setSelectedPayment(payment)
     }
 
-    console.log(selectedPayment)
-
     if (isLoading || paymentLoading) {
         return <Loading />
     }

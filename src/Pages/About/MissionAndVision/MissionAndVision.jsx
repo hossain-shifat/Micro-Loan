@@ -20,7 +20,6 @@ const MissionAndVision = () => {
                                     <div className="flex gap-2 items-center font-bold text-xl">
                                         {index === 0 ? <Target size={30} /> : <TrendingUp size={30} />}
                                         <h1>{m.title}</h1>
-                                        {console.log(index)}
                                     </div>
                                     <div>
                                         <p>{m.detail}</p>
@@ -33,7 +32,6 @@ const MissionAndVision = () => {
                                     <div className="flex gap-2 items-center font-bold text-xl">
                                         {index === 1 ? <Eye size={30} /> : <Sparkles size={30} />}
                                         <h1>{m.title}</h1>
-                                        {console.log(index)}
                                     </div>
                                     <div>
                                         <p>{m.detail}</p>

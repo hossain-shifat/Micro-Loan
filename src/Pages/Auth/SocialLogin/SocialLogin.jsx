@@ -16,7 +16,6 @@ const SocialLogin = () => {
     const handleSingInPopUp = () => {
         singInGoogle()
             .then(result => {
-                console.log(result.user)
 
                 // create user in the database
                 const userInfo = {
@@ -27,7 +26,6 @@ const SocialLogin = () => {
 
                 axiosSecure.post('/users', userInfo)
                     .then(res => {
-                        console.log('user data has been stored', res.data)
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
