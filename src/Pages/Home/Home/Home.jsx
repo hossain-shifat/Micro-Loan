@@ -6,6 +6,10 @@ import Reviews from '../Reviews/Reviews'
 import FAQ from '../FAQ/FAQ'
 import NewsLetter from '../NewsLetter/NewsLetter'
 import AvailableLoans from '../AvailableLoans/AvailableLoans'
+import Statistics from '../Statistics/Statistics'
+import LoanCategories from '../LoanCategories/LoanCategories'
+import WhyChooseUs from '../WhyChooseUs/WhyChooseUs'
+import CallToAction from '../CallToAction/CallToAction'
 
 const Home = () => {
     return (
@@ -14,13 +18,25 @@ const Home = () => {
                 <Banner />
             </FadeIn>
             <FadeIn>
+                <Statistics />
+            </FadeIn>
+            <FadeIn>
                 <AvailableLoans />
+            </FadeIn>
+            <FadeIn>
+                <LoanCategories />
+            </FadeIn>
+            <FadeIn>
+                <WhyChooseUs />
             </FadeIn>
             <FadeIn>
                 <HowItWorks />
             </FadeIn>
             <FadeIn>
                 <Reviews />
+            </FadeIn>
+            <FadeIn>
+                <CallToAction />
             </FadeIn>
             <FadeIn>
                 <FAQ />
