@@ -49,6 +49,9 @@ const Navbar = () => {
             <NavLink to='/blogs' onClick={closeMobileMenu}>
                 <li className="transition-colors duration-200 hover:text-white">Blogs</li>
             </NavLink>
+            <NavLink to='/help' onClick={closeMobileMenu}>
+                <li className="transition-colors duration-200 hover:text-white">Support</li>
+            </NavLink>
         </>
     )
 
@@ -60,9 +63,9 @@ const Navbar = () => {
             <NavLink to='/all-loans' onClick={closeMobileMenu}>
                 <li className="transition-colors duration-200 hover:text-white">All Loans</li>
             </NavLink>
-            <NavLink to='/dashboard' onClick={closeMobileMenu}>
+            {/* <NavLink to='/dashboard' onClick={closeMobileMenu}>
                 <li className="transition-colors duration-200 hover:text-white">Dashboard</li>
-            </NavLink>
+            </NavLink> */}
             <NavLink to='/about' onClick={closeMobileMenu}>
                 <li className="transition-colors duration-200 hover:text-white">About Us</li>
             </NavLink>
@@ -74,6 +77,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink to='/dashboard' onClick={closeMobileMenu}>
                 <li className="transition-colors duration-200 hover:text-white">Dashboard</li>
+            </NavLink>
+            <NavLink to='/help' onClick={closeMobileMenu}>
+                <li className="transition-colors duration-200 hover:text-white">Support</li>
             </NavLink>
         </>
     )

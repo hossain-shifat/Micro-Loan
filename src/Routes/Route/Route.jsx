@@ -27,6 +27,7 @@ import PaymentSuccess from "../../Pages/PaymentSuccess/PaymentSuccess";
 import About from "../../Pages/About/About/About";
 import Contact from "../../Pages/Contact/Contact";
 import BlogPage from "../../Pages/Blog/BlogPage";
+import HelpSupport from "../../Pages/HelpSupport/HelpSupport";
 
 
 export const router = createBrowserRouter([
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blogs',
                 Component: BlogPage
+            },
+            {
+                path: '/help',
+                Component: HelpSupport
             },
             {
                 path: '/loan-details/:id',
