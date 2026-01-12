@@ -46,6 +46,9 @@ const Navbar = () => {
             <NavLink to='/contact' onClick={closeMobileMenu}>
                 <li className="transition-colors duration-200 hover:text-white">Contact</li>
             </NavLink>
+            <NavLink to='/blogs' onClick={closeMobileMenu}>
+                <li className="transition-colors duration-200 hover:text-white">Blogs</li>
+            </NavLink>
         </>
     )
 
@@ -65,6 +68,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink to='/contact' onClick={closeMobileMenu}>
                 <li className="transition-colors duration-200 hover:text-white">Contact</li>
+            </NavLink>
+            <NavLink to='/blogs' onClick={closeMobileMenu}>
+                <li className="transition-colors duration-200 hover:text-white">Blogs</li>
             </NavLink>
             <NavLink to='/dashboard' onClick={closeMobileMenu}>
                 <li className="transition-colors duration-200 hover:text-white">Dashboard</li>
