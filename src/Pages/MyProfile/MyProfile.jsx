@@ -1,54 +1,248 @@
-import React from 'react'
-import useAuth from '../../Hooks/UseAuth/useAuth'
-import useRole from '../../Hooks/Role/useRoll'
-import { Edit } from 'lucide-react'
-import { Link } from 'react-router'
+import React, { useState } from 'react';
+import { Edit, Mail, Phone, MapPin, User, LogOut, Shield, Calendar, Camera } from 'lucide-react';
+import { Link } from 'react-router';
+import useAuth from '../../Hooks/UseAuth/useAuth';
+import useRole from '../../Hooks/Role/useRoll';
 
 const MyProfile = () => {
+    const { user, logOut } = useAuth();
+    const { role } = useRole();
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
-    const { user, logOut } = useAuth()
-    const { role } = useRole()
+    const handleLogout = () => {
+        logOut();
+        setShowLogoutModal(false);
+    };
 
-    const handleLogout = () =>{
-        logOut()
-    }
+    const getRoleBadgeColor = (userRole) => {
+        switch (userRole) {
+            case 'admin': return 'badge-error';
+            case 'manager': return 'badge-warning';
+            case 'borrower': return 'badge-info';
+            default: return 'badge-primary';
+        }
+    };
 
     return (
-        <div className="max-w-[650px] mx-auto min-h-dvh flex justify-center items-center">
-            <div className="space-y-3 p-5 border border-base-100 bg-base-100 rounded-2xl shadow-sm">
-                <div>
-                    <img className="w-full h-65 object-cover rounded-xl mx-auto" src={user.photoURL} alt="" />
+        <div className="min-h-screen bg-gradient-to-br from-base-200 via-base-100 to-base-200 py-8 px-4">
+            <div className="max-w-5xl mx-auto">
+                {/* Page Header */}
+                <div className="mb-6">
+                    <h1 className="text-3xl font-bold text-base-content">My Profile</h1>
+                    <p className="text-base-content/60 mt-1">Manage your account information and settings</p>
                 </div>
-                <div className="px-2 space-y-2">
-                    <div className="flex justify-between">
-                        <h1 className="font-bold text-xl">My Profile</h1>
-                        <div className="tooltip tooltip-top" data-tip='Update Profile'>
-                            <Link to='/update-profile'><button className="btn btn-primary btn-square btn-sm"><Edit size={16} /></button></Link>
+
+                <div className="grid lg:grid-cols-3 gap-6">
+                    {/* Left Column - Profile Card */}
+                    <div className="lg:col-span-1">
+                        <div className="bg-base-100 rounded-2xl shadow-lg border border-base-300 overflow-hidden">
+                            {/* Cover Background */}
+                            <div className="h-24 bg-gradient-to-r from-primary to-secondary relative">
+                                <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
+                                    <div className="relative">
+                                        <img
+                                            className="w-32 h-32 rounded-full object-cover border-4 border-base-100 shadow-xl"
+                                            src={user?.photoURL || 'https://via.placeholder.com/150'}
+                                            alt={user?.displayName || 'User'}
+                                        />
+                                        <div className="absolute bottom-1 right-1 bg-primary rounded-full p-2 shadow-lg cursor-pointer hover:scale-110 transition-transform">
+                                            <Camera size={16} className="text-primary-content" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Profile Info */}
+                            <div className="pt-20 pb-6 px-6 text-center">
+                                <h2 className="text-2xl font-bold text-base-content capitalize mb-2">
+                                    {user?.displayName || 'User'}
+                                </h2>
+                                <div className="flex justify-center mb-4">
+                                    <span className={`badge ${getRoleBadgeColor(role)} badge-lg capitalize font-semibold`}>
+                                        {role || 'User'}
+                                    </span>
+                                </div>
+                                <p className="text-base-content/60 text-sm mb-6">
+                                    Trusted member of LoanLink community
+                                </p>
+
+                                {/* Action Buttons */}
+                                <div className="flex flex-col gap-3">
+                                    <Link to="/update-profile" className="w-full">
+                                        <button className="btn btn-primary w-full gap-2">
+                                            <Edit size={18} />
+                                            Edit Profile
+                                        </button>
+                                    </Link>
+                                    <button
+                                        onClick={() => setShowLogoutModal(true)}
+                                        className="btn btn-outline btn-error w-full gap-2"
+                                    >
+                                        <LogOut size={18} />
+                                        Logout
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="flex gap-3">
-                        <h1 className="font-bold text-md">Name:</h1>
-                        <p className="font-semibold text-md capitalize flex gap-1">{user.displayName} <span className="capitalize"> ({role})</span></p>
-                    </div>
-                    <div className="flex gap-3">
-                        <h1>Email:</h1>
-                        <p>{user.email}</p>
-                    </div>
-                    <div className="flex gap-3">
-                        <h1>Phone:</h1>
-                        <p>+880123xxxxxxx</p>
-                    </div>
-                    <div className="flex gap-3">
-                        <h1>Address:</h1>
-                        <p>Savar,Dhaka</p>
-                    </div>
-                    <div className="flex justify-center items-center">
-                        <button onClick={handleLogout} className="btn btn-error btn-outline">logout</button>
+
+                    {/* Right Column - Details */}
+                    <div className="lg:col-span-2 space-y-6">
+                        {/* Personal Information Card */}
+                        <div className="bg-base-100 rounded-2xl shadow-lg border border-base-300 p-6">
+                            <div className="flex items-center justify-between mb-6">
+                                <h3 className="text-xl font-bold text-base-content">Personal Information</h3>
+                                <Link to="/update-profile">
+                                    <button className="btn btn-ghost btn-sm gap-2">
+                                        <Edit size={16} />
+                                        Edit
+                                    </button>
+                                </Link>
+                            </div>
+
+                            <div className="space-y-4">
+                                {/* Full Name */}
+                                <div className="flex items-start gap-4 p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors">
+                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                        <User className="text-primary" size={20} />
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="text-sm text-base-content/60 mb-1">Full Name</p>
+                                        <p className="font-semibold text-base-content capitalize">{user?.displayName || 'Not provided'}</p>
+                                    </div>
+                                </div>
+
+                                {/* Email */}
+                                <div className="flex items-start gap-4 p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors">
+                                    <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                                        <Mail className="text-secondary" size={20} />
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="text-sm text-base-content/60 mb-1">Email Address</p>
+                                        <p className="font-semibold text-base-content break-all">{user?.email || 'Not provided'}</p>
+                                    </div>
+                                </div>
+
+                                {/* Phone */}
+                                <div className="flex items-start gap-4 p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors">
+                                    <div className="w-10 h-10 rounded-full bg-info/10 flex items-center justify-center flex-shrink-0">
+                                        <Phone className="text-info" size={20} />
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="text-sm text-base-content/60 mb-1">Phone Number</p>
+                                        <p className="font-semibold text-base-content">+880 123 XXX XXXX</p>
+                                    </div>
+                                </div>
+
+                                {/* Address */}
+                                <div className="flex items-start gap-4 p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors">
+                                    <div className="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
+                                        <MapPin className="text-success" size={20} />
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="text-sm text-base-content/60 mb-1">Address</p>
+                                        <p className="font-semibold text-base-content">Savar, Dhaka</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Account Settings Card */}
+                        <div className="bg-base-100 rounded-2xl shadow-lg border border-base-300 p-6">
+                            <h3 className="text-xl font-bold text-base-content mb-6">Account Settings</h3>
+
+                            <div className="space-y-3">
+                                <div className="flex items-center justify-between p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors">
+                                    <div>
+                                        <p className="font-semibold text-base-content">Account Status</p>
+                                        <p className="text-sm text-base-content/60">Your account is active and verified</p>
+                                    </div>
+                                    <span className="badge badge-success badge-lg">Active</span>
+                                </div>
+
+                                <div className="flex items-center justify-between p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors">
+                                    <div>
+                                        <p className="font-semibold text-base-content">Two-Factor Authentication</p>
+                                        <p className="text-sm text-base-content/60">Add extra security to your account</p>
+                                    </div>
+                                    <input type="checkbox" className="toggle toggle-primary" />
+                                </div>
+
+                                <div className="flex items-center justify-between p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors">
+                                    <div>
+                                        <p className="font-semibold text-base-content">Email Notifications</p>
+                                        <p className="text-sm text-base-content/60">Receive updates about your loans</p>
+                                    </div>
+                                    <input type="checkbox" className="toggle toggle-primary" defaultChecked />
+                                </div>
+
+                                <div className="flex items-center justify-between p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors">
+                                    <div>
+                                        <p className="font-semibold text-base-content">SMS Notifications</p>
+                                        <p className="text-sm text-base-content/60">Get text alerts for important updates</p>
+                                    </div>
+                                    <input type="checkbox" className="toggle toggle-primary" defaultChecked />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Security Card */}
+                        <div className="bg-base-100 rounded-2xl shadow-lg border border-base-300 p-6">
+                            <h3 className="text-xl font-bold text-base-content mb-6">Security</h3>
+
+                            <div className="space-y-3">
+                                <button className="w-full flex items-center justify-between p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors text-left">
+                                    <div>
+                                        <p className="font-semibold text-base-content">Change Password</p>
+                                        <p className="text-sm text-base-content/60">Update your account password</p>
+                                    </div>
+                                    <Shield className="text-primary" size={20} />
+                                </button>
+
+                                <button className="w-full flex items-center justify-between p-4 rounded-lg bg-base-200/50 hover:bg-base-200 transition-colors text-left">
+                                    <div>
+                                        <p className="font-semibold text-base-content">Login History</p>
+                                        <p className="text-sm text-base-content/60">View your recent login activity</p>
+                                    </div>
+                                    <Calendar className="text-primary" size={20} />
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
 
-export default MyProfile
+            {/* Logout Confirmation Modal */}
+            {showLogoutModal && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+                    <div className="bg-base-100 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in duration-200">
+                        <div className="text-center mb-6">
+                            <div className="w-16 h-16 bg-error/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <LogOut className="text-error" size={32} />
+                            </div>
+                            <h3 className="text-2xl font-bold text-base-content mb-2">Logout Confirmation</h3>
+                            <p className="text-base-content/60">Are you sure you want to logout from your account?</p>
+                        </div>
+
+                        <div className="flex gap-3">
+                            <button
+                                onClick={() => setShowLogoutModal(false)}
+                                className="btn btn-outline flex-1"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={handleLogout}
+                                className="btn btn-error flex-1"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default MyProfile;
