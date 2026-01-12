@@ -28,6 +28,11 @@ import About from "../../Pages/About/About/About";
 import Contact from "../../Pages/Contact/Contact";
 import BlogPage from "../../Pages/Blog/BlogPage";
 import HelpSupport from "../../Pages/HelpSupport/HelpSupport";
+import PrivacyPolicy from "../../Pages/PrivacyPolicy/PrivacyPolicyPage";
+import Security from "../../Pages/Security/Security";
+import Compliance from "../../Pages/Compliance/Compliance";
+import PrivacyPolicyPage from "../../Pages/PrivacyPolicy/PrivacyPolicyPage";
+import TermsofService from "../../Pages/TermsofService/TermsofService";
 
 
 export const router = createBrowserRouter([
@@ -59,6 +64,22 @@ export const router = createBrowserRouter([
             {
                 path: '/help',
                 Component: HelpSupport
+            },
+            {
+                path: '/privacy-policy',
+                Component: PrivacyPolicyPage
+            },
+            {
+                path: '/terms-of-service',
+                Component: TermsofService
+            },
+            {
+                path: '/security',
+                Component: Security
+            },
+            {
+                path: '/compliance',
+                Component: Compliance
             },
             {
                 path: '/loan-details/:id',
