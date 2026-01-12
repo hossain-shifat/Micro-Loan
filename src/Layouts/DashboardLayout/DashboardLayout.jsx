@@ -1,20 +1,29 @@
-
-import { Clock, DollarSign, HandCoins, Home, Inbox, LaptopMinimalCheck, MoonIcon, NotepadText, PanelRightClose, SunIcon, User, Users } from 'lucide-react'
+import { Clock, DollarSign, HandCoins, Home, Inbox, LaptopMinimalCheck, MoonIcon, NotepadText, PanelRightClose, SunIcon, User, Users, ChevronDown, LogOut, Settings } from 'lucide-react'
 import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router'
+import { Link, Outlet, useNavigate } from 'react-router'
 import Logo from '../../Components/Logo/Logo';
 import useAuth from '../../Hooks/UseAuth/useAuth';
 import useRole from '../../Hooks/Role/useRoll';
 import { useTheme } from '../../Hooks/ThemeHook/useTheme';
+import toast from 'react-hot-toast';
 
 const DashbordLayout = () => {
     const [menu, setMenu] = useState('menu')
-
     const [theme, toggleTheme] = useTheme()
-
-    const { user } = useAuth()
-
+    const { user, logOut } = useAuth()
     const { role } = useRole()
+    const navigate = useNavigate()
+
+    const handleLogout = async () => {
+        try {
+            await logOut();
+            toast.success('Logged out successfully!');
+            navigate('/login');
+        } catch (error) {
+            toast.error('Failed to logout. Please try again.');
+            console.error('Logout error:', error);
+        }
+    };
 
     return (
         <div className="drawer lg:drawer-open">
@@ -33,17 +42,41 @@ const DashbordLayout = () => {
                                     : (<SunIcon className="size-5 text-yellow-400" size={23} />)
                             }
                         </button>
-                        <Link to='/dashboard/my-profile'>
-                            <div className="flex gap-2">
+
+                        {/* Profile Dropdown */}
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="flex gap-2 items-center cursor-pointer hover:bg-base-100 p-2 rounded-lg transition-colors">
                                 <div>
                                     <img className="w-10.5 h-10.5 rounded-full object-cover" src={user.photoURL} alt="" />
                                 </div>
                                 <div className="leading-5">
                                     <h1 className="font-bold capitalize">{user.displayName}</h1>
-                                    <p>{role}</p>
+                                    <p className="text-sm">{role}</p>
                                 </div>
+                                <ChevronDown size={18} className="text-base-content/60" />
                             </div>
-                        </Link>
+                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-lg z-[1] w-52 p-2 shadow-lg border border-base-300 mt-2">
+                                <li>
+                                    <Link to='/dashboard/my-profile' className="flex items-center gap-3 hover:bg-primary/10">
+                                        <User size={18} />
+                                        <span>My Profile</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/dashboard' className="flex items-center gap-3 hover:bg-primary/10">
+                                        <Settings size={18} />
+                                        <span>Settings</span>
+                                    </Link>
+                                </li>
+                                <div className="divider my-1"></div>
+                                <li>
+                                    <button onClick={handleLogout} className="flex items-center gap-3 hover:bg-error/10 text-error">
+                                        <LogOut size={18} />
+                                        <span>Logout</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </nav>
                 </nav>
                 <div className="m-3 md:m-5 p-2 md:p-10 rounded-2xl min-h-screen bg-base-200 border-base-200 inset-shadow-2xs shadow-sm">
@@ -149,10 +182,6 @@ const DashbordLayout = () => {
                 </div>
             </div>
         </div>
-
-
-
-
     );
 };
 
