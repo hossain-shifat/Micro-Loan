@@ -33,6 +33,8 @@ import Security from "../../Pages/Security/Security";
 import Compliance from "../../Pages/Compliance/Compliance";
 import PrivacyPolicyPage from "../../Pages/PrivacyPolicy/PrivacyPolicyPage";
 import TermsofService from "../../Pages/TermsofService/TermsofService";
+import ServicesPage from "../../Pages/Services/Services";
+import CareersPage from "../../Pages/Careers/Careers";
 
 
 export const router = createBrowserRouter([
@@ -80,6 +82,14 @@ export const router = createBrowserRouter([
             {
                 path: '/compliance',
                 Component: Compliance
+            },
+            {
+                path: '/services',
+                Component: ServicesPage
+            },
+            {
+                path: '/careers',
+                Component: CareersPage
             },
             {
                 path: '/loan-details/:id',
