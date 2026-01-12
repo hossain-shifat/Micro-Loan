@@ -53,9 +53,8 @@ const DashbordLayout = () => {
                                     <h1 className="font-bold capitalize">{user.displayName}</h1>
                                     <p className="text-sm">{role}</p>
                                 </div>
-                                <ChevronDown size={18} className="text-base-content/60" />
                             </div>
-                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-lg z-[1] w-52 p-2 shadow-lg border border-base-300 mt-2">
+                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-lg z-10 w-52 p-2 shadow-lg border border-base-300 mt-2">
                                 <li>
                                     <Link to='/dashboard/my-profile' className="flex items-center gap-3 hover:bg-primary/10">
                                         <User size={18} />

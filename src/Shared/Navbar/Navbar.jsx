@@ -4,10 +4,12 @@ import Logo from '../../Components/Logo/Logo'
 import { useTheme } from '../../Hooks/ThemeHook/useTheme'
 import { Link, NavLink } from 'react-router'
 import useAuth from '../../Hooks/UseAuth/useAuth'
+import useRole from '../../Hooks/Role/useRoll'
 
 const Navbar = () => {
     const [theme, toggleTheme] = useTheme()
     const { user, logOut } = useAuth()
+    const { role } = useRole()
     const [isProfileOpen, setIsProfileOpen] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const profileRef = useRef(null)
@@ -128,21 +130,22 @@ const Navbar = () => {
                         {user ? (
                             <div className="relative" ref={profileRef}>
                                 {/* Profile Dropdown Button */}
-                                <button
-                                    onClick={() => setIsProfileOpen(!isProfileOpen)}
-                                    className="flex items-center gap-2 p-1.5 pr-3 rounded-lg bg-base-100 hover:bg-base-300 shadow-sm transition-all duration-200 hover:scale-105 active:scale-95"
-                                >
-                                    <img
-                                        src={user.photoURL}
-                                        alt="Profile"
-                                        className="w-8 h-8 rounded-full object-cover ring-2 ring-primary/20"
-                                    />
-                                    <ChevronDown
-                                        size={16}
-                                        className={`hidden sm:block text-base-content transition-transform duration-200 ${isProfileOpen ? 'rotate-180' : ''
-                                            }`}
-                                    />
-                                </button>
+                                <div onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center gap-2 p-1 px4 rounded-lg bg-base-100 hover:bg-base-300 shadow-sm transition-all duration-200 hover:scale-105 active:scale-95">
+                                    <button
+                                        // onClick={() => setIsProfileOpen(!isProfileOpen)}
+                                        className=""
+                                    >
+                                        <img
+                                            src={user.photoURL}
+                                            alt="Profile"
+                                            className="w-8 h-8 rounded-full object-cover ring-2 ring-primary/20"
+                                        />
+                                    </button>
+                                    <div>
+                                        <p>{user.displayName}</p>
+                                        <p>{role}</p>
+                                    </div>
+                                </div>
 
                                 {/* Dropdown Menu */}
                                 {isProfileOpen && (
